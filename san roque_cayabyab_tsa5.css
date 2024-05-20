@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(https://wallpapercave.com/wp/wp3354529.png);
+    padding: 0px;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+} 
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 80vw;
+    height: 50vh;
+    margin: auto;
+    margin-top: 15px;
+    border: 15px;
+    max-width: 1200px;
+    gap: 20px
+}
+
+.card
+{
+    background-image: linear-gradient(to bottom, rgb(72, 72, 247) , lightblue);
+    border-radius: 8px;
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 10px 10px ;
+    
+}
+
+.card-bg
+{
+    background: url(https://img.freepik.com/free-vector/gradient-zoom-effect-blue-background_23-2149762303.jpg?t=st=1716176614~exp=1716180214~hmac=e54b2622b85defde9ff7d1013b246e66199807c481b1dffe19ec0b27d993d655&w=1380);
+    background-position: center;
+    background-size: cover;
+}
+
+image {
+    position: absolute;
+    height: 100px;
+}
+
+.name {
+    font-family: "Merriweather";
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.pokemon-type {
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin: 5px 0;
+    display: inline;
+}
+
+.normal {
+    background-color: #5e5c57;
+}
+
+.ground {
+    background-color: #cf5a06;
+}
+
+.fire {
+    background-color: #ff1302;
+}
+
+.psychic {
+    background-color: #f153ea;
+}
+
+
+.fighting {
+    background-color: #f79f4d;
+}
+
+
+.water {
+    background-color: #0011ff;
+}
+
+
+.dragon {
+    background-color: #a890f0;
+}
+
+
+.ice {
+    background-color: #00d9ff;
+}
+.description {
+    font-size: 15px;
+    margin: 10px 0;
+    color: #666;
+}
+
+.card-buttons {
+    margin-top: auto;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.card-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+    background-color: rgb(77, 75, 75);
+}
