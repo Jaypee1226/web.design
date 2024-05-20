@@ -7,13 +7,18 @@
 }
 
 body {
-    background-image: url(https://wallpapercave.com/wp/wp3354529.png);
-    padding: 0px;
+    background-image: url(https://img.freepik.com/free-photo/fantasy-magic-landscape_23-2151502943.jpg?t=st=1716204827~exp=1716208427~hmac=5d1b494e8c98fc5f0a32535cff012d2f94720234931ad19da4c7c72bf61d8470&w=996);
     justify-content: center;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-} 
+}
+
+.pokemon-logo {
+    display: block;
+    margin: 0 auto;
+    width: 400px; 
+}
 
 .container {
     display: flex;
@@ -27,35 +32,35 @@ body {
     gap: 20px
 }
 
-.card
-{
-    background-image: linear-gradient(to bottom, rgb(72, 72, 247) , lightblue);
+.card {
+    background-image: linear-gradient(to bottom, rgb(72, 72, 247), lightblue);
     border-radius: 8px;
     display: inline-block;
     align-items: center;
     text-align: center;
     padding: 15px;
     margin-bottom: 20px;
-    box-shadow: 10px 10px ;
-    
+    box-shadow: 10px 10px;
+    opacity: .85;
 }
 
-.card-bg
-{
-    background: url(https://img.freepik.com/free-vector/gradient-zoom-effect-blue-background_23-2149762303.jpg?t=st=1716176614~exp=1716180214~hmac=e54b2622b85defde9ff7d1013b246e66199807c481b1dffe19ec0b27d993d655&w=1380);
+
+.card-bg {
+    background: url(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGJ0czZnMWd3dmpzdjY0NHoxMTN2NDhwcXk2enJ2bnd1aHdxd3FucCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3og0IyRiAsl1Pczi6Y/giphy.gif);
     background-position: center;
     background-size: cover;
 }
 
 image {
-    position: absolute;
     height: 100px;
+    position: absolute;
 }
 
 .name {
     font-family: "Merriweather";
     font-size: 30px;
     margin: 10px 0;
+    color: white;
 }
 
 .pokemon-type {
@@ -101,16 +106,53 @@ image {
 .ice {
     background-color: #00d9ff;
 }
+
 .description {
     font-size: 15px;
     margin: 10px 0;
-    color: #666;
+    color: white;
 }
 
+.elementnormal
+{
+    background-image: linear-gradient(to bottom, grey, darkgrey);
+    border-radius: 10px;
+}
+
+.elementground
+{
+    background-image: linear-gradient(to bottom, #cf5a06, #ff1302);
+    border-radius: 10px;
+}
+
+.elementpsychic
+{
+    background-image: linear-gradient(to bottom, #f153ea, #f79f4d);
+    border-radius: 10px;
+}
+
+.elementwater
+{
+    background-image: linear-gradient(to bottom, rgb(0, 183, 255), rgb(8, 102, 133));
+    border-radius: 10px;
+}
+
+.elementdragon
+{
+    background-image: linear-gradient(to bottom, #a890f0, #00d9ff);
+    border-radius: 10px;
+}
+
+.elementice
+{
+    background-image: linear-gradient(to bottom, #00d9ff, #8cdceb);
+    border-radius: 10px;
+}
 .card-buttons {
     margin-top: auto;
     width: 100%;
     justify-content: space-around;
+
 }
 
 .card-button {
@@ -123,6 +165,10 @@ image {
     transition: background-color 0.3s ease;
 }
 
-.card-button:hover {
-    background-color: rgb(77, 75, 75);
-}
+.card-button:hover {background-color:rgb(77, 75, 75)}
+
+.card-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+} 
