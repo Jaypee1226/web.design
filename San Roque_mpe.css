@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.flex-container {
+    background-image: url(img/landscape.jpg);
+    padding: 0px;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    border: 5px grey solid;
+    margin: 0 auto;
+    transition: 1s ease;
+}
+
+.card {
+    width: 400px;
+    height: 400px;
+    margin: 10px;
+    border: 2px black solid;
+    justify-content: space-between;
+    text-align: center;
+    padding: 5px;
+    box-shadow: 5px 5px;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.card:hover {
+    transform: scale(1.09);
+}
+
+.pokeball {
+    width: 90px;
+    display: none;
+}
+
+.image {
+    width: 100%;
+}
+
+.abra {
+    background-color: rgb(224, 213, 54);
+}
+
+.bullbasour {
+    background-color: rgb(43, 175, 43);
+}
+
+.charmander1 {
+    background-color: orange;
+}
+
+.dratini {
+    background-color: rgb(95, 168, 250);
+}
+
+.jigglypuff {
+    background-color: pink;
+}
+
+.mankey {
+    background-color: burlywood;
+}
+
+.meowth {
+    background-color: bisque;
+}
+
+.pikachu {
+    background-color: #fbca04;
+}
+
+.rattata {
+    background-color: #bb7cfb;
+}
+
+.squirtle1 {
+    background-color: lightblue;
+}
+
+.weedle {
+    background-color: rgb(226, 168, 93);
+}
+
+.zumbat {
+    background-color: rgb(101, 101, 235);
+}
+
+h1 {
+    display: none;
+    font-family: "Merriweather";
+    font-weight: bold;
+}
+
+@media (max-width: 1285px) {
+    .card {
+        display: flex;
+        flex-direction: row;
+        width: 1000px;
+        height: 100px;
+        justify-content: center;
+        border: 2px black solid;
+        padding: 5px;
+        border-radius: 25px;
+        align-items: center;
+    }
+
+    .image {
+        width: 9%;
+    }
+
+
+    h1 {
+        display: inline-block;
+        text-align: center;
+        flex-grow: 1;
+        color: black;
+    }
+
+    .pokeball {
+        display: inline-block;
+    }
+
+    .card:hover {
+        background-image: url(img/bg.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 750px) {
+    body {
+        background-image: url(https://wallpapercave.com/wp/wp3354529.png);
+        height: 100%;
+        padding: 0px;
+        justify-content: center;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .card {
+        width: 100vw;
+        height: 100vw;
+        justify-content: space-around;
+        border: 2px black solid;
+        padding: 5px;
+        border-radius: 25px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image {
+        align-self: center;
+        width: 75%;
+    }
+
+    .name {
+        display: block;
+        text-align: center;
+        font-size: 2rem;
+        margin-top: 10px;
+    }
+
+    h1 {
+        font-size: 4rem;
+        color: whitesmoke;
+        display: block;
+        font-family: "Merriweather";
+        font-weight: bold;
+    }
+
+    .pokeball {
+        display: none;
+    }
+
+    .card:hover {
+        background-image: url(img/bg.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+}
