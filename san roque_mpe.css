@@ -11,7 +11,7 @@ body {
 }
 
 .flex-container {
-    background-image: url(https://img.freepik.com/free-photo/fantasy-magic-landscape_23-2151502943.jpg?t=st=1716204827~exp=1716208427~hmac=5d1b494e8c98fc5f0a32535cff012d2f94720234931ad19da4c7c72bf61d8470&w=996);
+    background-image: url(images/landscape.jpg);
     padding: 0px;
     justify-content: center;
     background-repeat: no-repeat;
