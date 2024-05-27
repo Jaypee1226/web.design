@@ -11,7 +11,7 @@ body {
 }
 
 .flex-container {
-    background-image: url(img/landscape.jpg);
+    background-image: url(images/landscape.jpg);
     padding: 0px;
     justify-content: center;
     background-repeat: no-repeat;
