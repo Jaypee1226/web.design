@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Simulation</title>
+  <link rel="stylesheet" href="san roque_cayabyab_tsa8.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="control-panel">
+      <h1>Control Panel</h1>
+      <button id="reset-flexbox" class="control-btn">Reset Flexbox</button>
+
+      <div class="control-group-row">
+        <p class="control-label">Gap</p>
+        <input type="number" id="gap" min="0" value="0">
+      </div>
+
+      <div class="control-group">
+        <h2>Flex Direction</h2>
+        <div class="control-group-row">
+          <button id="flex-direction-row" class="control-btn">Row</button>
+          <button id="flex-direction-column" class="control-btn">Column</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <h2>Justify Content</h2>
+        <div class="control-group-row">
+          <button id="justify-start" class="control-btn">Flex-start</button>
+          <button id="justify-center" class="control-btn">Center</button>
+        </div>
+        <div class="control-group-row">
+          <button id="justify-end" class="control-btn">Flex-end</button>
+          <button id="justify-space-between" class="control-btn">Space-between</button>
+        </div>
+        <div class="control-group-row">
+          <button id="justify-space-around" class="control-btn">Space-around</button>
+          <button id="justify-space-evenly" class="control-btn">Space-evenly</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <h2>Align Items</h2>
+        <div class="control-group-row">
+          <button id="align-start" class="control-btn">Flex-start</button>
+          <button id="align-center" class="control-btn">Center</button>
+          <button id="align-end" class="control-btn">Flex-end</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <h2>Flex Grow</h2>
+        <div class="control-group-row">
+          <button id="flex-grow-reset" class="control-btn">Reset All</button>
+          <button id="flex-grow-all" class="control-btn">Grow All</button>
+        </div>
+        <div class="control-group-row">
+          <p class="control-label">Box 1:</p>
+          <input type="number" id="flex-grow-1" min="0" value="0">
+        </div>
+        <div class="control-group-row">
+          <p class="control-label">Box 2:</p>
+          <input type="number" id="flex-grow-2" min="0" value="0">
+        </div>
+        <div class="control-group-row">
+          <p class="control-label">Box 3:</p>
+          <input type="number" id="flex-grow-3" min="0" value="0">
+        </div>
+      </div>
+    </div>
+
+    <div class="display-panel">
+      <div class="box" id="box-1">1</div>
+      <div class="box" id="box-2">2</div>
+      <div class="box" id="box-3">3</div>
+    </div>
+  </div>
+  <script src="san roque_cayabyab_tsa8.js"></script>
+</body>
+
+</html>
