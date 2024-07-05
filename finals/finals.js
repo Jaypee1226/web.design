@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const sliderText = document.getElementById('slider-text');
     const mainContent = document.getElementById('main-content');
     const unlockContainer = document.getElementById('unlock-container');
-
     let isDragging = false;
     let startX;
     let currentX;
