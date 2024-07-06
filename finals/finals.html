@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finals</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="finals.css">
 </head>
 
 <body>
     <nav class="navi">
         <div class="logo">
-            <img src="" alt="Logo">
+            <img src="/" alt="" class="logo-img">
         </div>
         <ul class="menu-list">
             <li class="m-list"><a href="#home">HOME</a></li>
@@ -26,53 +27,94 @@
     <section id="home" class="main-content">
         <div class="home-container">
             <div class="detail-container">
-                <img src="" alt="" class="detail-img">
-                <p>JOHN PATRICK</p>
+                <div class="detail-circle">
+                    <img src="/finals/logo.png" alt="" class="detail-img">
+                </div>
             </div>
+
+            <div class="name-container">
+                <h1>JOHN PATRICK</h1>
+            </div>
+
+            <div class="my-image">
+                <div class="image-circle">
+                    <img src="/finals/IMG_0247.jpg" alt="" class="image-image">
+                </div>
+            </div>
+
+
 
             <div class="skill-container">
                 <div class="skill-square">
-                    <div class="circle-button">
-                        <img src="" alt="Skill Logo 1" class="skill-logo">
+                    <div class="skill-button">
+                        <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/badge-html-5-1024.png"
+                            alt="Skill Logo 1" class="skill-logo">
                     </div>
                 </div>
                 <div class="skill-square">
-                    <div class="circle-button">
-                        <img src="" alt="Skill Logo 2" class="skill-logo">
+                    <div class="skill-button">
+                        <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/badge-css-3-1024.png"
+                            alt="Skill Logo 2" class="skill-logo">
                     </div>
                 </div>
                 <div class="skill-square">
-                    <div class="circle-button">
-                        <img src="" alt="Skill Logo 3" class="skill-logo">
+                    <div class="skill-button">
+                        <img src="https://cdn2.iconfinder.com/data/icons/designer-skills/128/code-programming-javascript-software-develop-command-language-1024.png"
+                            alt="Skill Logo 3" class="skill-logo">
                     </div>
                 </div>
                 <div class="skill-square">
-                    <div class="circle-button">
-                        <img src="" alt="Skill Logo 4" class="skill-logo">
+                    <div class="skill-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/C%2B%2B_logo.png"
+                            alt="Skill Logo 4" class="skill-logo">
                     </div>
                 </div>
             </div>
 
             <div class="social-container">
                 <div class="social-square">
-                    <div class="circle-button">
-                        <img src="" alt="Logo 1" class="social-logo">
-                    </div>
+                    <a href="https://www.facebook.com/johnpatrick.sanroque1226/" target="_blank">
+                        <div class="social-circle">
+                            <img src="https://starfinderfoundation.org/wp-content/uploads/2015/07/Facebook-logo-blue-circle-large-transparent-png.png"
+                                alt="Facebook" class="social-logo">
+                        </div>
+                    </a>
                 </div>
                 <div class="social-square">
-                    <div class="circle-button">
-                        <img src="" alt="Logo 2" class="social-logo">
-                    </div>
+                    <a href="https://www.instagram.com/jaypeeee_sr/" target="_blank">
+                        <div class="social-circle">
+                            <img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-instagram-new-circle-1024.png"
+                                alt="Instagram" class="social-logo">
+                        </div>
+                    </a>
                 </div>
                 <div class="social-square">
-                    <div class="circle-button">
-                        <img src="" alt="Logo 3" class="social-logo">
-                    </div>
+                    <a href="https://github.com/Jaypee1226?tab=repositories" target="_blank">
+                        <div class="social-circle">
+                            <img src="https://cdn4.iconfinder.com/data/icons/bettericons/354/github-circle-1024.png"
+                                alt="GitHub" class="social-logo">
+                        </div>
+                    </a>
                 </div>
             </div>
 
-            <div class="entertain-container">
 
+            <div class="entertain-container">
+                <div class="tic-tac-toe">
+                    <div class="board">
+                        <div class="cell" data-index="0"></div>
+                        <div class="cell" data-index="1"></div>
+                        <div class="cell" data-index="2"></div>
+                        <div class="cell" data-index="3"></div>
+                        <div class="cell" data-index="4"></div>
+                        <div class="cell" data-index="5"></div>
+                        <div class="cell" data-index="6"></div>
+                        <div class="cell" data-index="7"></div>
+                        <div class="cell" data-index="8"></div>
+                    </div>
+                    <div class="message"></div>
+                    <button class="reset-button">Reset</button>
+                </div>
             </div>
         </div>
     </section>
@@ -86,7 +128,17 @@
                         <button id="fullNameBtn">Personal Details</button>
                     </div>
                 </div>
+            </div>
 
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="circle-button">
+                        <button id="fullNameBtn">
+                            <img src="https://cdn4.iconfinder.com/data/icons/twitter-29/512/159_Twitter_Image_Picture-1024.png"
+                                alt="" class="image-personal">
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="education-container">
@@ -123,18 +175,8 @@
                         <button id="jsBtn">JavaScript</button>
                     </div>
                 </div>
-                <div class="prof-square">
-                    <div class="circle-button">
-                        <button id="baBtn">Business Analytics</button>
-                    </div>
-                </div>
-                <div class="prof-square">
-                    <div class="circle-button">
-                        <button id="pythonBtn">Python</button>
-                    </div>
-                </div>
             </div>
-    
+
 
             <div class="display-container">
                 <h3>Details Display</h3>
@@ -149,50 +191,232 @@
         <h2>Works</h2>
         <div class="work-container">
             <div class="work-item">
-                <img src="image1.jpg" alt="Work 1">
-                <h3>Title 1</h3>
-                <a href="link1" class="btn">View More</a>
+                <img src="/finals/2.png" alt="TSA 2" class="work-image">
+                <h3>TSA 2</h3>
+                <a href="https://jaypee1226.github.io/it0043tb02/san%20roque_tsa2.html" class="btn" target="_blank">View
+                    More</a>
             </div>
             <div class="work-item">
-                <img src="image2.jpg" alt="Work 2">
-                <h3>Title 2</h3>
-                <a href="link2" class="btn">View More</a>
+                <img src="/finals/3.png" alt="TSA 3" class="work-image">
+                <h3>TSA 3</h3>
+                <a href="https://jaypee1226.github.io/it0043tb02/san%20roque_tsa3.html" class="btn" target="_blank">View
+                    More</a>
             </div>
             <div class="work-item">
-                <img src="image2.jpg" alt="Work 2">
-                <h3>Title 3</h3>
-                <a href="link2" class="btn">View More</a>
+                <img src="/finals/4.png" alt="TSA 4" class="work-image">
+                <h3>TSA 4</h3>
+                <a href="https://jaypee1226.github.io/it0043tb02/san%20roque_tsa4.html" class="btn" target="_blank">View
+                    More</a>
             </div>
             <div class="work-item">
-                <img src="image2.jpg" alt="Work 2">
-                <h3>Title 4</h3>
-                <a href="" class="btn">View More</a>
+                <img src="/finals/5.png" alt="TSA 5" class="work-image">
+                <h3>TSA 5</h3>
+                <a href="https://jaypee1226.github.io/it0043tb02/san%20roque_cayabyab_tsa5.html" class="btn"
+                    target="_blank">View
+                    More</a>
             </div>
             <div class="work-item">
-                <img src="image2.jpg" alt="Work 2">
-                <h3>Title 5</h3>
-                <a href="link2" class="btn">View More</a>
+                <img src="/finals/mpe.png" alt="MPE" class="work-image">
+                <h3>MPE</h3>
+                <a href="https://jaypee1226.github.io/it0043tb02/san%20roque_mpe.html" class="btn" target="_blank">View
+                    More</a>
             </div>
             <div class="work-item">
-                <img src="image2.jpg" alt="Work 2">
-                <h3>Title 6</h3>
-                <a href="link2" class="btn">View More</a>
+                <img src="/finals/6.png" alt="TSA 6" class="work-image">
+                <h3>TSA 6</h3>
+                <a href="https://jaypee1226.github.io/it0043tb02/san%20roque_cayabyab_tsa6.html" class="btn"
+                    target="_blank">View
+                    More</a>
             </div>
             <div class="work-item">
-                <img src="image2.jpg" alt="Work 2">
+                <img src="/finals/7.png" alt="TSA 7" class="work-image">
                 <h3>Title 7</h3>
-                <a href="https://jaypee1226.github.io/it0043tb02/san%20roque_cayabyab_tsa7.html" class="btn">View More</a>
+                <a href="https://jaypee1226.github.io/it0043tb02/san%20roque_cayabyab_tsa7.html" class="btn"
+                    target="_blank">View
+                    More</a>
             </div>
             <div class="work-item">
-                <img src="image8.jpg" alt="Work 8">
-                <h3>Title 8</h3>
-                <a href="link8" class="btn">View More</a>
+                <img src="/finals/8.png" alt="TSA 8" class="work-image">
+                <h3>TSA 8</h3>
+                <a href="https://jaypee1226.github.io/it0043tb02/san%20roque_cayabyab_tsa8.html" class="btn"
+                    target="_blank">View
+                    More</a>
             </div>
         </div>
     </section>
 
+    <section id="contact" class="contact-section">
+        <h2>Contact</h2>
+        <div class="contact-container">
+            <div class="contact-intro">
+                <p>Have a question that can't be handled by our support staff? Fill this form below and we will get back
+                    to you as soon as we can. If you're looking for assistance regarding your service or account at
+                    Godlike.host, please contact us via an appropriate support channel at our support portal.</p>
+            </div>
 
-    <script src="finals.js"></script>
+            <div class="contact-details">
+                <div class="detail-box">
+                    <img src="https://cdn4.iconfinder.com/data/icons/sapphire-storm-1/32/color-web3-13-1024.png" alt=""
+                        id="address" class="contact-logo">
+                    <label for="address">San Miguel, Bulacan</label>
+                </div>
+                <div class="detail-box">
+                    <img src="https://cdn2.iconfinder.com/data/icons/buno-ui-interface/32/__phone_call-1024.png" alt=""
+                        id="phone" class="contact-logo">
+                    <label for="phone">+63 975 123 0913</label>
+                </div>
+                <div class="detail-box">
+                    <img src="https://cdn4.iconfinder.com/data/icons/buno-email/32/__email_address_contact-1024.png"
+                        alt="" id="email" class="contact-logo">
+                    <label for="email">sanroquejohnpatrick26@gmail.com</label>
+                </div>
+            </div>
+
+            <div class="social-details">
+                <div class="contact-square">
+                    <a href="https://www.facebook.com/johnpatrick.sanroque1226/" target="_blank">
+                        <div class="social-circle">
+                            <img src="https://starfinderfoundation.org/wp-content/uploads/2015/07/Facebook-logo-blue-circle-large-transparent-png.png"
+                                alt="Facebook" class="social-logo">
+                        </div>
+                    </a>
+                </div>
+                <div class="social-square">
+                    <a href="https://www.instagram.com/jaypeeee_sr/" target="_blank">
+                        <div class="social-circle">
+                            <img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-instagram-new-circle-1024.png"
+                                alt="Instagram" class="social-logo">
+                        </div>
+                    </a>
+                </div>
+                <div class="social-square">
+                    <a href="https://github.com/Jaypee1226?tab=repositories" target="_blank">
+                        <div class="social-circle">
+                            <img src="https://cdn4.iconfinder.com/data/icons/bettericons/354/github-circle-1024.png"
+                                alt="GitHub" class="social-logo">
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form class="main-form" action="#" method="POST">
+                    <div class="form-field">
+                        <input type="text" id="name" name="name" placeholder="Name" required>
+                    </div>
+
+                    <div class="form-field">
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+
+                    <div class="form-field">
+                        <textarea id="message" name="message" rows="4" placeholder="Message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="send-button">SEND</button>
+                </form>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="testimony" class="testimony-section">
+        <h2>Testimonials</h2>
+        <div class="container">
+            <div class="card">
+                <h3 class="title">Card 1</h3>
+                <div class="bar">
+                    <div class="emptybar"></div>
+                    <div class="filledbar"></div>
+                </div>
+                <p class="testimonial-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in lacus
+                    nibh.</p>
+            </div>
+            <div class="card">
+                <h3 class="title">Card 2</h3>
+                <div class="bar">
+                    <div class="emptybar"></div>
+                    <div class="filledbar"></div>
+                </div>
+                <p class="testimonial-text">Suspendisse potenti. Duis at nulla varius, maximus nunc nec, sollicitudin
+                    nisl.</p>
+            </div>
+            <div class="card">
+                <h3 class="title">Card 3</h3>
+                <div class="bar">
+                    <div class="emptybar"></div>
+                    <div class="filledbar"></div>
+                </div>
+                <p class="testimonial-text">Vestibulum dignissim quam in malesuada bibendum. Pellentesque fringilla.</p>
+            </div>
+            <div class="card">
+                <h3 class="title">Card 4</h3>
+                <div class="bar">
+                    <div class="emptybar"></div>
+                    <div class="filledbar"></div>
+                </div>
+                <p class="testimonial-text">Fusce fermentum quam sed velit malesuada, at sodales lorem dictum.</p>
+            </div>
+            <div class="card">
+                <h3 class="title">Card 5</h3>
+                <div class="bar">
+                    <div class="emptybar"></div>
+                    <div class="filledbar"></div>
+                </div>
+                <p class="testimonial-text">Nulla facilisi. Aenean accumsan ex in ante eleifend dapibus.</p>
+            </div>
+            <div class="card">
+                <h3 class="title">Card 6</h3>
+                <div class="bar">
+                    <div class="emptybar"></div>
+                    <div class="filledbar"></div>
+                </div>
+                <p class="testimonial-text">Phasellus eget orci at lacus maximus rhoncus eu at magna.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faqs-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="faq-item bg-color">
+                <h3 class="faq-question">What is Lorem Ipsum?</h3>
+                <p class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, sequi.</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="faq-item bg-color">
+                <h3 class="faq-question">How can I join your service?</h3>
+                <p class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, sequi.</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="faq-item bg-color">
+                <h3 class="faq-question">What are your payment options?</h3>
+                <p class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, sequi.</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="faq-item bg-color">
+                  <h3 class="faq-question">What are your payment options?</h3>
+                  <p class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, sequi.</p>
+                </div>
+              </div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>&copy;  John Patrick P. San Roque - All Rights Reserved.</p>
+      </footer>
+
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="finals.js"></script>
 </body>
 
 </html>
