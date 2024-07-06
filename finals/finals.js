@@ -109,39 +109,107 @@ tertiaryBtn.addEventListener('click', () => {
 htmlBtn.addEventListener('click', () => {
     detailsDisplay.innerHTML = `
         <h3>HTML Proficiency</h3>
-        <p>Level: Advanced</p>
-        <p>Experience: 5+ years</p>
+        <p>Level: Beginner</p>
+        <p>Experience: 1 semester</p>
     `;
 });
 
 cssBtn.addEventListener('click', () => {
     detailsDisplay.innerHTML = `
         <h3>CSS Proficiency</h3>
-        <p>Level: Intermediate</p>
-        <p>Experience: 3+ years</p>
+       <p>Level: Beginner</p>
+        <p>Experience: 1 semester</p>
     `;
 });
 
 jsBtn.addEventListener('click', () => {
     detailsDisplay.innerHTML = `
         <h3>JavaScript Proficiency</h3>
-        <p>Level: Intermediate</p>
-        <p>Experience: 3+ years</p>
+        <p>Level: Beginner</p>
+        <p>Experience: 1 semester</p>
     `;
 });
 
-baBtn.addEventListener('click', () => {
-    detailsDisplay.innerHTML = `
-        <h3>Business Analytics Proficiency</h3>
-        <p>Level: Intermediate</p>
-        <p>Experience: 3+ years</p>
-    `;
+document.addEventListener("DOMContentLoaded", function() {
+    const cells = document.querySelectorAll(".cell");
+    const message = document.querySelector(".message");
+    const resetButton = document.querySelector(".reset-button");
+    let currentPlayer = "X";
+    let board = ["", "", "", "", "", "", "", "", ""];
+    let gameActive = true;
+
+    function handleCellClick(event) {
+        const cell = event.target;
+        const index = cell.getAttribute("data-index");
+
+        if (board[index] !== "" || !gameActive) {
+            return;
+        }
+
+        board[index] = currentPlayer;
+        cell.textContent = currentPlayer;
+
+        if (checkWinner()) {
+            message.textContent = `${currentPlayer} wins!`;
+            gameActive = false;
+            return;
+        }
+
+        if (board.every(cell => cell !== "")) {
+            message.textContent = "Draw!";
+            gameActive = false;
+            return;
+        }
+
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
+        message.textContent = `It's ${currentPlayer}'s turn`;
+    }
+
+    function checkWinner() {
+        const winningCombinations = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+        ];
+
+        return winningCombinations.some(combination => {
+            const [a, b, c] = combination;
+            return board[a] && board[a] === board[b] && board[a] === board[c];
+        });
+    }
+
+    function resetGame() {
+        board = ["", "", "", "", "", "", "", "", ""];
+        gameActive = true;
+        currentPlayer = "X";
+        cells.forEach(cell => (cell.textContent = ""));
+        message.textContent = `It's ${currentPlayer}'s turn`;
+    }
+
+    cells.forEach(cell => cell.addEventListener("click", handleCellClick));
+    resetButton.addEventListener("click", resetGame);
+    message.textContent = `It's ${currentPlayer}'s turn`;
 });
 
-pythonBtn.addEventListener('click', () => {
-    detailsDisplay.innerHTML = `
-        <h3>Python Proficiency</h3>
-        <p>Level: Intermediate</p>
-        <p>Experience: 3+ years</p>
-    `;
-});
+document.addEventListener('DOMContentLoaded', function () {
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  });
+
+  
