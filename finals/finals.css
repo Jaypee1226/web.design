@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: url(/finals/gr.jpg);
+    background-image: url(finals/gr.jpg);
     /* background-repeat: no-repeat; */
     background-size: contain;
     min-height: 100vh;
