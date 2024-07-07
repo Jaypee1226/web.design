@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: url(finals/gr.jpg);
+    background-image: url(/finals/gr.jpg);
     /* background-repeat: no-repeat; */
     background-size: contain;
     min-height: 100vh;
@@ -18,16 +18,8 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.main-content,
-.about-section,
-.work-section,
-.contact-section,
-.testimony-section,
-.faqs-section {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-    /* padding: 50px; 
-    margin-bottom: 20px;  */
-}
+
+
 .navi {
     background-color: black;
     color: white;
@@ -41,6 +33,7 @@ body {
     z-index: 10;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 
 .logo-img {
     width: 60px;
@@ -56,56 +49,68 @@ body {
     margin-left: 40px;
 }
 
-.m-list>a {
+.m-list > a {
     text-decoration: none;
     color: white;
     font-size: 1.1rem;
     transition: color 0.3s ease-in-out;
-    /* Adjusted transition timing and easing function */
     font-family: 'Satoshi', sans-serif;
     position: relative;
 }
 
-.m-list>a:hover {
+.m-list > a:hover {
     color: white;
-    /* Ensuring font color stays white */
+    text-shadow: 0 0 10px rgba(0, 154, 217, 1), 0 0 10px rgba(217, 147, 0, 1), 0 0 10px rgba(255, 186, 0, 1);
 }
 
-.m-list a:before,
-.m-list a:after {
+.m-list > a:before,
+.m-list > a:after {
     position: absolute;
     left: 0;
     width: 100%;
     height: 2px;
     background: #FFF;
-    /* Initial background color */
     content: "";
     opacity: 0;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-    /* Adjusted transition timing and easing function */
 }
 
-.m-list a:before {
+.m-list > a:before {
     top: -6px;
     transform: translateY(10px);
-    /* Adjusted initial position */
 }
 
-.m-list a:after {
+.m-list > a:after {
     bottom: -6px;
     transform: translateY(-10px);
-    /* Adjusted initial position */
 }
 
-.m-list a:hover:before,
-.m-list a:hover:after {
+.m-list > a:hover:before,
+.m-list > a:hover:after {
     opacity: 1;
     transform: translateY(0);
     background-color: #2A4BB3;
-    /* Change underline color on hover */
 }
 
+/* Integrating glow effect */
 
+.m-list > a::before,
+.m-list > a::after {
+    content: attr(data-text);
+    position: absolute;
+    color: transparent;
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+    border-right: 8px solid #FFF; /* Adjust color as needed */
+    -webkit-text-stroke: 1px #FFF; /* Adjust color as needed */
+}
+
+.m-list > a:hover::before,
+.m-list > a:hover::after {
+    width: 100%;
+    filter: drop-shadow(0 0 15px rgba(0, 154, 217, 1), 0 0 15px rgba(217, 147, 0, 1), 0 0 15px rgba(255, 186, 0, 1)); /* Applying linear gradient color for glow effect */
+}
 
 
 /* #unlock-container {
@@ -170,7 +175,7 @@ body {
     grid-template-columns: 40% 45% 15%;
     grid-template-rows: 10% 30% 60%;
     gap: 10px;
-    margin: 20px;
+    /* margin: 20px; */
 
 }
 
@@ -464,7 +469,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 10px rgba(0, 154, 217, 0.8), -10px -10px 20px rgba(217, 147, 0, 0.8), inset 0px 0px 20px rgba(255, 186, 0, 0.8);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -476,8 +481,8 @@ body {
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 50px;
-    margin-top: 20px;
-    margin-bottom: 50px;
+    /* margin-top: 20px; */
+    /* margin-bottom: 50px; */
 }
 
 .about-section h2 {
@@ -493,8 +498,7 @@ body {
     max-width: 1200px;
     display: grid;
     grid-template-columns: 15% 70% 15%;
-    /* Adjusted column widths */
-    grid-template-rows: 25% 75%;
+    grid-template-rows: 25% 25% 25% 25%;
     gap: 10px;
     margin: auto;
     /* Center the container horizontally */
@@ -564,7 +568,7 @@ body {
 .display-container {
     grid-column: 2/3;
     /* Spanning from column 2 to column 3 */
-    grid-row: 1/3;
+    grid-row: 1/4;
     /* Spanning from row 1 to row 3 */
     background-color: #003479;
     padding: 20px;
@@ -595,6 +599,79 @@ body {
     height: 100%;
     /* Ensure containers take up full height */
 }
+
+.hobby-container{
+    grid-column: 1/2;
+    grid-row: 3/4;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    background-color: #25252F;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    /* Added to prevent overflow */
+    height: 100%;
+    /* Ensure containers take up full height */
+}
+
+.experience-container{
+    grid-column: 3/4;
+    grid-row: 3/4;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    background-color: #25252F;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    /* Added to prevent overflow */
+    height: 100%;
+    /* Ensure containers take up full height */   
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.skill-details {
+    display: flex;
+    align-items: center;
+}
+
+.skill-details img {
+    width: 30px; /* Adjust size as needed */
+    height: 30px; /* Adjust size as needed */
+    margin-right: 10px; /* Spacing between logo and text */
+}
+
+.skill-details p {
+    margin: 0;
+    font-size: 1rem;
+    margin-right: 10px; /* Spacing between logo and text */
+}
+
+.progress-container {
+    width: calc(100% - 40px); /* Adjusted width to account for logo and text */
+    background-color: #ddd; /* Progress bar background color */
+    border-radius: 4px;
+    height: 8px; /* Height of the progress bar */
+    overflow: hidden;
+    margin-left: 10px; /* Adjusted margin */
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #007bff; /* Progress bar color */
+}
+
+
 
 .personal-square {
     width: 100px;
@@ -681,13 +758,6 @@ body {
     outline: none;
 }
 
-.details-display {
-    width: 400px;
-    height: 400px;
-    padding: 10px;
-    color: white;
-    font-size: 1.1rem;
-}
 
 .tv-box {
     background-color: black;
@@ -721,9 +791,8 @@ body {
     font-size: 1.1rem;
     text-align: center;
     line-height: 1.6;
-    /* Improved readability */
     max-width: 80%;
-    /* Limit width for better readability */
+    overflow: auto;
 }
 
 .details-display p {
@@ -734,8 +803,8 @@ body {
     height: auto;
     /* Adjust height as needed */
     padding: 50px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    /* margin-top: 50px; */
+    /* margin-bottom: 50px; */
     /* Ensure enough margin between sections */
     background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
@@ -796,15 +865,17 @@ body {
     color: #ECB336;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.5s ease;
 }
 
 .work-item .btn:hover {
-    background-color: #1C1C25;
+    background: linear-gradient(90deg, rgba(0, 154, 217, 1) 0%, rgba(217, 147, 0, 1) 65%, rgba(255, 186, 0, 1) 100%);
+    color:white
 }
 
+
 .work-item:hover {
-    transform: translateY(-5px) scale(1.03);
+    transform: translateY(-10px) scale(1.03);
     /* Scale up slightly */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
@@ -815,7 +886,7 @@ body {
     padding: 50px;
     padding-top: 100px;
     /* Adjust padding-top to create space */
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
     /* Ensure enough margin between sections */
     background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
@@ -995,7 +1066,7 @@ textarea:focus::placeholder {
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 50px;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 .testimony-section h2 {
@@ -1039,8 +1110,14 @@ textarea:focus::placeholder {
 
 .testimony-section .title {
     color: white;
-    font-weight: 300;
-    position: absolute;
+    font-weight: bold;
+    top: 15px;
+    left: 20px;
+}
+
+.testimony-section .subtitle {
+    color: white;
+    font-weight: 250;
     top: 15px;
     left: 20px;
 }
@@ -1107,8 +1184,8 @@ textarea:focus::placeholder {
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 50px;
-    margin-bottom: 50px;
-    margin-top: 50px;
+    /* margin-bottom: 50px; */
+    /* margin-top: 50px; */
     padding: 50px 20px;
 }
 
@@ -1123,49 +1200,49 @@ textarea:focus::placeholder {
     max-width: 800px;
     margin: 0 auto;
     position: relative;
-    /* Ensure the container is positioned relative for absolute positioning of navigation buttons */
     display: flex;
     align-items: center;
-    /* Align items vertically */
 }
 
 .swiper-wrapper {
     display: flex;
-    align-items: center;
-    /* Align items vertically */
+    align-items: stretch; /* Ensure all items stretch to the same height */
 }
 
 .swiper-slide {
-    width: 300px;
-    /* Set the width of the FAQ boxes */
-    height: 200px;
-    /* Set the height of the FAQ boxes */
+    width: 600px; /* Increased width */
+    height: 480px; /* Increased height */
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 20px; /* Increased padding */
     text-align: center;
     color: #fff;
-    flex-shrink: 0;
-    /* Prevent the slides from shrinking */
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    position: relative; /* Ensure position is relative for absolute arrows */
 }
 
 .faq-item {
-    padding: 20px;
-    text-align: left;
+    width: 100%; /* Ensure each item takes full width */
 }
 
 .faq-question {
-    font-size: 18px;
+    font-size: 24px; /* Increased font size */
     font-weight: bold;
     margin-bottom: 10px;
+    flex-shrink: 0;
 }
 
 .faq-answer {
-    font-size: 16px;
+    font-size: 18px; /* Increased font size */
     line-height: 1.6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical; */
 }
 
 .swiper-button-prev,
@@ -1180,15 +1257,20 @@ textarea:focus::placeholder {
     align-items: center;
     cursor: pointer;
     position: absolute;
-
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5); /* Background color for contrast */
+    border: none; /* Remove default border */
+    outline: none; /* Remove default outline */
 }
 
 .swiper-button-prev {
-    left: 10px;
+    left: -60px; /* Adjusted to be outside the boxes */
 }
 
 .swiper-button-next {
-    right: 10px;
+    right: -60px; /* Adjusted to be outside the boxes */
 }
 
 .swiper-button-disabled {
@@ -1199,6 +1281,9 @@ textarea:focus::placeholder {
 .bg-color {
     background: linear-gradient(90deg, rgba(0, 154, 217, 1) 0%, rgba(217, 147, 0, 1) 65%, rgba(255, 186, 0, 1) 100%);
 }
+
+
+
 
 .footer {
     background-color: #333;
