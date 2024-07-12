@@ -193,27 +193,13 @@ document.addEventListener("DOMContentLoaded", function() {
     message.textContent = `It's ${currentPlayer}'s turn`;
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
-  });
 
 
 
 
   const educationData = [
-    { type: "High-School", logo: "", name: "School of Mount St. Mary, Inc.", duration: "6 years" },
+    { type: "Elementary", logo: "finals/smsm.jpg", name: "School of Mount St. Mary, Inc.", duration: "6 years" },
+    { type: "High-School", logo: "finals/smsm.jpg", name: "School of Mount St. Mary, Inc.", duration: "6 years" },
     { type: "College", logo: "https://upload.wikimedia.org/wikipedia/en/6/62/FEU_Tech_official_seal.png", name: "Far Eastern University Institute of Technology", duration: "Ongoing" }
 ];
 
@@ -225,20 +211,22 @@ const skillsData = [
 ];
 
 const hobbiesData = [
-    "icon1.png",
-    "icon2.png",
-    "icon3.png"
+    "finals/sleep.png",
+    "finals/gamer.png",
+    "finals/eating.png",
+    "finals/movie.png"
 ];
 
 const workData = [
-    { logo: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/canva-icon.png", name : "Canva PH", years: "2018-2020" },
-    { logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Procter_%26_Gamble_logo.svg/800px-Procter_%26_Gamble_logo.svg.png", name: "P&G Philippines", years: "2020-present" }
+    { logo: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/canva-icon.png", name : "Canva PH", years: "2018-2022" },
+    { logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Procter_%26_Gamble_logo.svg/800px-Procter_%26_Gamble_logo.svg.png", name: "P&G Philippines", years: "2023-present" }
 ];
 
 const imagesData = [
-    "image1.jpg",
-    "image2.jpg",
-    "image3.jpg"
+    "finals/img1.jpg",
+    "finals/img2.jpg",
+    "finals/img3.png",
+    "finals/img4.jpg"
 ];
 
 function displayEducation() {
@@ -303,7 +291,7 @@ function displayWorkExperience() {
 }
 
 function displayImages() {
-    let html = "<h4>Developer Images</h4><div style='display: flex; justify-content: center; flex-wrap: wrap;'>";
+    let html = "<h4>My Images</h4><div style='display: flex; justify-content: center; flex-wrap: wrap;'>";
     imagesData.forEach(image => {
         html += `
             <img src="${image}" alt="Developer Image" style="max-width: 150px; margin: 10px;">
@@ -314,7 +302,7 @@ function displayImages() {
 }
 
 document.getElementById('fullNameBtn').addEventListener('click', () => {
-    document.getElementById('detailsDisplay').innerHTML = "<h4>Personal Details</h4><p>Full Name: John Patrick P. San Roque<br>Age : 22 yrs old<br>Birthday: December 26, 2002</p>";
+    document.getElementById('detailsDisplay').innerHTML = "<h4>Personal Details</h4><p>Full Name: John Patrick P. San Roque<br>Age : 21 yrs old<br>Birthday: December 26, 2002<br>Address: San Miguel, Bulacan</p>";
 });
 
 document.getElementById('educBtn').addEventListener('click', displayEducation);
@@ -323,3 +311,41 @@ document.getElementById('hobbiesBtn').addEventListener('click', displayHobbies);
 document.getElementById('workBtn').addEventListener('click', displayWorkExperience);
 document.getElementById('imgbtn').addEventListener('click', displayImages);
 
+document.addEventListener('DOMContentLoaded', function() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+  
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+  
+        if (answer.style.display === 'block') {
+          answer.style.display = 'none';
+          this.querySelector('.toggle-icon').textContent = '+';
+        } else {
+          answer.style.display = 'block';
+          this.querySelector('.toggle-icon').textContent = '-';
+        }
+      });
+    });
+  });
+  
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+  
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', function() {
+        const faqItem = this.closest('.faq-item');
+        const answer = faqItem.querySelector('.faq-answer');
+  
+        if (faqItem.classList.contains('open')) {
+          faqItem.classList.remove('open');
+          answer.style.maxHeight = null;
+        } else {
+          faqItem.classList.add('open');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  });
+  
