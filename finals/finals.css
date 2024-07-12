@@ -9,19 +9,20 @@
 
 body {
     background-image: url(finals/gr.jpg);
-    /* background-repeat: no-repeat; */
     background-size: contain;
     min-height: 100vh;
     font-family: 'Satoshi', sans-serif;
     color: white;
     overflow-x: hidden;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: black;
+    user-select: none;
 }
 
 
 
 .navi {
     background-color: black;
+    opacity: 80%;
     color: white;
     width: 100vw;
     padding: 20px 40px;
@@ -49,22 +50,22 @@ body {
     margin-left: 40px;
 }
 
-.m-list > a {
+.m-list>a {
     text-decoration: none;
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     transition: color 0.3s ease-in-out;
     font-family: 'Satoshi', sans-serif;
     position: relative;
 }
 
-.m-list > a:hover {
+.m-list>a:hover {
     color: white;
     text-shadow: 0 0 10px rgba(0, 154, 217, 1), 0 0 10px rgba(217, 147, 0, 1), 0 0 10px rgba(255, 186, 0, 1);
 }
 
-.m-list > a:before,
-.m-list > a:after {
+.m-list>a:before,
+.m-list>a:after {
     position: absolute;
     left: 0;
     width: 100%;
@@ -75,41 +76,42 @@ body {
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-.m-list > a:before {
+.m-list>a:before {
     top: -6px;
     transform: translateY(10px);
 }
 
-.m-list > a:after {
+.m-list>a:after {
     bottom: -6px;
     transform: translateY(-10px);
 }
 
-.m-list > a:hover:before,
-.m-list > a:hover:after {
+.m-list>a:hover:before,
+.m-list>a:hover:after {
     opacity: 1;
     transform: translateY(0);
     background-color: #2A4BB3;
 }
 
-/* Integrating glow effect */
 
-.m-list > a::before,
-.m-list > a::after {
+
+.m-list>a::before,
+.m-list>a::after {
     content: attr(data-text);
     position: absolute;
     color: transparent;
     width: 0;
     overflow: hidden;
     transition: width 0.3s ease-in-out;
-    border-right: 8px solid #FFF; /* Adjust color as needed */
-    -webkit-text-stroke: 1px #FFF; /* Adjust color as needed */
+    border-right: 8px solid #FFF;
+    -webkit-text-stroke: 1px #FFF;
 }
 
-.m-list > a:hover::before,
-.m-list > a:hover::after {
+.m-list>a:hover::before,
+.m-list>a:hover::after {
     width: 100%;
-    filter: drop-shadow(0 0 15px rgba(0, 154, 217, 1), 0 0 15px rgba(217, 147, 0, 1), 0 0 15px rgba(255, 186, 0, 1)); /* Applying linear gradient color for glow effect */
+    filter: drop-shadow(0 0 15px rgba(0, 154, 217, 1), 0 0 15px rgba(217, 147, 0, 1), 0 0 15px rgba(255, 186, 0, 1));
+    /* Applying linear gradient color for glow effect */
 }
 
 
@@ -168,15 +170,13 @@ body {
 }
 
 .home-container {
-    height: 400px;
-    width: 75%;
+    height: 500px;
+    width: 80%;
     max-width: 1200px;
     display: grid;
     grid-template-columns: 40% 45% 15%;
     grid-template-rows: 10% 30% 60%;
     gap: 10px;
-    /* margin: 20px; */
-
 }
 
 .detail-container {
@@ -203,7 +203,6 @@ body {
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
-    /* Added to prevent overflow */
 }
 
 .name-container {
@@ -214,19 +213,16 @@ body {
     padding: 5px;
     background-color: #003479;
     justify-content: center;
-    /* Center horizontally */
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
     text-align: center;
-    /* Center text inside */
 }
 
 .name-container h1 {
     font-size: 1.5rem;
     margin-bottom: 20px;
     text-align: center;
-    /* Center text */
 }
 
 
@@ -243,7 +239,6 @@ body {
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
-    /* Added to prevent overflow */
 }
 
 .image-circle {
@@ -276,6 +271,7 @@ body {
     background-color: #1C1C25;
     border-radius: 10px;
     display: flex;
+
     justify-content: center;
     align-items: center;
     position: relative;
@@ -299,12 +295,10 @@ body {
     grid-row: 3/4;
     display: flex;
     flex-direction: column;
-    /* Changed to column */
     gap: 10px;
     padding: 10px;
     background-color: #25252F;
     overflow: hidden;
-    /* Added to prevent overflow */
     justify-content: center;
     align-items: center;
     border-radius: 10px;
@@ -352,7 +346,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin: 0 10px;
-    /* Adjust margin as needed */
 }
 
 .skill-button:hover {
@@ -363,11 +356,8 @@ body {
 
 .social-logo {
     width: 40px;
-    /* Size of the logo */
     height: 40px;
-    /* Size of the logo */
     object-fit: contain;
-    /* Ensure logo fits inside circle */
 }
 
 .entertain-container {
@@ -466,9 +456,9 @@ body {
     border-radius: 50%;
     background-color: #1C1C25;
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
-    position: relative;
     box-shadow: 5px 5px 10px rgba(0, 154, 217, 0.8), -10px -10px 20px rgba(217, 147, 0, 0.8), inset 0px 0px 20px rgba(255, 186, 0, 0.8);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -480,9 +470,7 @@ body {
     text-align: center;
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 50px;
-    /* margin-top: 20px; */
-    /* margin-bottom: 50px; */
+    padding: 100px;
 }
 
 .about-section h2 {
@@ -501,9 +489,7 @@ body {
     grid-template-rows: 25% 25% 25% 25%;
     gap: 10px;
     margin: auto;
-    /* Center the container horizontally */
     padding: 10px;
-    /* Added padding for better spacing */
     border-radius: 10px;
     justify-content: center;
     align-items: center;
@@ -513,6 +499,7 @@ body {
     grid-column: 1/2;
     grid-row: 1/2;
     display: flex;
+    height: 100%;
     flex-wrap: wrap;
     gap: 10px;
     padding: 10px;
@@ -521,9 +508,6 @@ body {
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
-    /* Added to prevent overflow */
-    height: 100%;
-    /* Ensure containers take up full height */
 }
 
 
@@ -531,6 +515,7 @@ body {
     grid-column: 1/2;
     grid-row: 2/3;
     display: flex;
+    height: 100%;
     flex-wrap: wrap;
     gap: 10px;
     padding: 10px;
@@ -539,10 +524,6 @@ body {
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
-    /* Added to prevent overflow */
-    height: 100%;
-    /* Ensure containers take up full height */
-
 }
 
 
@@ -550,7 +531,7 @@ body {
     grid-column: 3/4;
     grid-row: 2/3;
     background-color: #25252F;
-    /* Adjusted background color */
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -559,17 +540,13 @@ body {
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
-    /* Added to prevent overflow */
-    height: 100%;
-    /* Ensure containers take up full height */
+
 
 }
 
 .display-container {
     grid-column: 2/3;
-    /* Spanning from column 2 to column 3 */
     grid-row: 1/4;
-    /* Spanning from row 1 to row 3 */
     background-color: #003479;
     padding: 20px;
     border-radius: 10px;
@@ -578,14 +555,13 @@ body {
     justify-content: center;
     align-items: center;
     overflow-y: auto;
-    /* Enable vertical scrolling if needed */
     position: relative;
-    /* Ensure positioning context for .tv-box */
 }
 
 .image-container {
     grid-column: 3/4;
     grid-row: 1/2;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -595,14 +571,12 @@ body {
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
-    /* Added to prevent overflow */
-    height: 100%;
-    /* Ensure containers take up full height */
 }
 
-.hobby-container{
+.hobby-container {
     grid-column: 1/2;
     grid-row: 3/4;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -612,12 +586,9 @@ body {
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
-    /* Added to prevent overflow */
-    height: 100%;
-    /* Ensure containers take up full height */
 }
 
-.experience-container{
+.experience-container {
     grid-column: 3/4;
     grid-row: 3/4;
     display: flex;
@@ -629,9 +600,7 @@ body {
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
-    /* Added to prevent overflow */
     height: 100%;
-    /* Ensure containers take up full height */   
 }
 
 .skill-item {
@@ -646,29 +615,29 @@ body {
 }
 
 .skill-details img {
-    width: 30px; /* Adjust size as needed */
-    height: 30px; /* Adjust size as needed */
-    margin-right: 10px; /* Spacing between logo and text */
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
 
 .skill-details p {
     margin: 0;
     font-size: 1rem;
-    margin-right: 10px; /* Spacing between logo and text */
+    margin-right: 10px;
 }
 
 .progress-container {
-    width: calc(100% - 40px); /* Adjusted width to account for logo and text */
-    background-color: #ddd; /* Progress bar background color */
+    width: calc(100% - 40px);
+    background-color: #ddd;
     border-radius: 4px;
-    height: 8px; /* Height of the progress bar */
+    height: 8px;
     overflow: hidden;
-    margin-left: 10px; /* Adjusted margin */
+    margin-left: 10px;
 }
 
 .progress-bar {
     height: 100%;
-    background-color: #007bff; /* Progress bar color */
+    background-color: #007bff;
 }
 
 
@@ -762,15 +731,12 @@ body {
 .tv-box {
     background-color: black;
     border: 10px solid #25252F;
-    /* Match the background color of display-container */
     padding: 20px;
     border-radius: 20px;
     width: 100%;
     max-width: 800px;
-    /* Adjust width as needed */
     height: 100%;
     max-height: 600px;
-    /* Adjust height as needed */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -784,12 +750,14 @@ body {
 }
 
 .details-display {
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     padding: 10px;
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     text-align: center;
+    justify-content: center;
+    align-items: center;
     line-height: 1.6;
     max-width: 80%;
     overflow: auto;
@@ -801,11 +769,7 @@ body {
 
 .work-section {
     height: auto;
-    /* Adjust height as needed */
     padding: 50px;
-    /* margin-top: 50px; */
-    /* margin-bottom: 50px; */
-    /* Ensure enough margin between sections */
     background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
     color: white;
@@ -870,24 +834,19 @@ body {
 
 .work-item .btn:hover {
     background: linear-gradient(90deg, rgba(0, 154, 217, 1) 0%, rgba(217, 147, 0, 1) 65%, rgba(255, 186, 0, 1) 100%);
-    color:white
+    color: white
 }
 
 
 .work-item:hover {
     transform: translateY(-10px) scale(1.03);
-    /* Scale up slightly */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .contact-section {
     height: auto;
-    /* Adjust height as needed */
     padding: 50px;
     padding-top: 100px;
-    /* Adjust padding-top to create space */
-    /* margin-bottom: 50px; */
-    /* Ensure enough margin between sections */
     background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
     color: white;
@@ -909,7 +868,6 @@ body {
     grid-template-rows: auto auto auto;
     gap: 10px;
     margin: 20px auto;
-    /* Centering horizontally */
     justify-content: center;
     align-items: center;
 }
@@ -948,10 +906,8 @@ body {
     flex-wrap: wrap;
     gap: 10px;
     padding: 10px;
-    justify-content: center;
-    /* Center items horizontally */
+    justify-content: space-evenly;
     align-items: center;
-    /* Center items vertically */
     border-radius: 10px;
     overflow: hidden;
 }
@@ -1000,17 +956,16 @@ body {
 
 .main-form {
     width: 100%;
-    /* Take full width of .contact-form */
     max-width: 600px;
-    /* Max-width as per your design */
     padding: 20px;
     border-radius: 10px;
     background-color: black;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
     gap: 20px;
-    /* Gap between form fields */
 }
 
 .form-field {
@@ -1033,7 +988,6 @@ input::placeholder,
 textarea::placeholder {
     color: #888;
     opacity: 1;
-    /* Firefox */
 }
 
 input:focus::placeholder,
@@ -1043,9 +997,7 @@ textarea:focus::placeholder {
 
 .send-button {
     margin-top: 10px;
-    /* Smaller margin */
     padding: 8px 16px;
-    /* Smaller padding */
     border: none;
     border-radius: 5px;
     background-color: #FF4500;
@@ -1066,7 +1018,6 @@ textarea:focus::placeholder {
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 50px;
-    /* margin-bottom: 50px; */
 }
 
 .testimony-section h2 {
@@ -1081,7 +1032,6 @@ textarea:focus::placeholder {
     align-items: center;
     flex-wrap: wrap;
     gap: 30px;
-    /* Adjust the gap between cards */
 }
 
 .testimony-section .card {
@@ -1089,9 +1039,7 @@ textarea:focus::placeholder {
     flex-direction: column;
     align-items: center;
     width: 250px;
-    /* Adjust the width of each card */
     height: 320px;
-    /* Adjust the height of each card */
     background-color: #17141d;
     border-radius: 10px;
     box-shadow: -1rem 0 3rem #000;
@@ -1127,7 +1075,6 @@ textarea:focus::placeholder {
     top: 100px;
     left: 20px;
     width: calc(100% - 40px);
-    /* Adjusted to dynamically calculate the width */
     height: 5px;
 }
 
@@ -1149,7 +1096,6 @@ textarea:focus::placeholder {
 
 .testimony-section .card:hover .filledbar {
     width: 100%;
-    /* Fills up to the end of the .bar */
 }
 
 .testimony-section .testimonial-text {
@@ -1184,8 +1130,6 @@ textarea:focus::placeholder {
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 50px;
-    /* margin-bottom: 50px; */
-    /* margin-top: 50px; */
     padding: 50px 20px;
 }
 
@@ -1195,94 +1139,67 @@ textarea:focus::placeholder {
     text-align: left;
 }
 
-.swiper-container {
-    width: 100%;
+.faq-container {
     max-width: 800px;
     margin: 0 auto;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.swiper-wrapper {
-    display: flex;
-    align-items: stretch; /* Ensure all items stretch to the same height */
-}
-
-.swiper-slide {
-    width: 600px; /* Increased width */
-    height: 480px; /* Increased height */
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px; /* Increased padding */
-    text-align: center;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative; /* Ensure position is relative for absolute arrows */
 }
 
 .faq-item {
-    width: 100%; /* Ensure each item takes full width */
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #25252F;
+    /* Initial solid background color */
+    transition: background-color 0.5s ease-in-out;
+    /* Slower transition with ease-in-out */
 }
 
 .faq-question {
-    font-size: 24px; /* Increased font size */
-    font-weight: bold;
-    margin-bottom: 10px;
-    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    background: #25252F;
+    /* Initial solid background color */
+    transition: background-color 0.5s ease-in-out;
+    /* Slower transition with ease-in-out */
+}
+
+.question-title {
+    margin: 0;
+    color: #fff;
+    /* Text color for question titles */
+}
+
+.toggle-icon {
+    font-size: 20px;
+    color: #fff;
+    /* Text color for toggle icon */
 }
 
 .faq-answer {
-    font-size: 18px; /* Increased font size */
-    line-height: 1.6;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical; */
+    padding: 10px 20px;
+    display: none;
+    background-color: #25252F;
+    /* Initial solid background color */
+    background-image: linear-gradient(90deg, rgba(0, 154, 217, 1) 0%, rgba(217, 147, 0, 1) 65%, rgba(255, 186, 0, 1) 100%);
+    transition: background-color 0.5s ease-in-out;
+    /* Slower transition with ease-in-out */
 }
 
-.swiper-button-prev,
-.swiper-button-next {
-    color: #fff;
-    font-size: 18px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.5); /* Background color for contrast */
-    border: none; /* Remove default border */
-    outline: none; /* Remove default outline */
+.faq-item.open {
+    background-color: #25252F;
+    /* Initial solid background color */
 }
 
-.swiper-button-prev {
-    left: -60px; /* Adjusted to be outside the boxes */
+.faq-item.open .faq-question,
+.faq-item.open .faq-answer {
+    background-color: #25252F;
+    /* Initial solid background color */
+    background-image: linear-gradient(90deg, rgba(0, 154, 217, 1) 0%, rgba(217, 147, 0, 1) 65%, rgba(255, 186, 0, 1) 100%);
 }
-
-.swiper-button-next {
-    right: -60px; /* Adjusted to be outside the boxes */
-}
-
-.swiper-button-disabled {
-    opacity: 0.5;
-    pointer-events: none;
-}
-
-.bg-color {
-    background: linear-gradient(90deg, rgba(0, 154, 217, 1) 0%, rgba(217, 147, 0, 1) 65%, rgba(255, 186, 0, 1) 100%);
-}
-
-
 
 
 .footer {
@@ -1294,3 +1211,287 @@ textarea:focus::placeholder {
     bottom: 0;
     width: 100%;
 }
+
+
+@media (max-width: 1300px){
+    
+    .home-container{
+        grid-template-columns: 40% 20% 15% 15% ;
+    }
+
+    .skill-container{
+        grid-column: 4/5;
+        grid-row: 1/4;
+        flex-direction: column;
+    }
+
+    .name-container{
+        grid-row: 1/3;
+    }
+
+    .m-list>a {
+        font-size: 1rem;
+    }
+}
+
+
+@media (max-width: 750px) {
+
+    body {
+        background-image: url(finals/gr.jpg);
+        background-size: contain;
+        min-height: 100vh;
+        max-width: 750px;
+        margin: 0 auto;
+        /* Centers content */
+        font-family: 'Satoshi', sans-serif;
+        color: white;
+        overflow-x: hidden;
+        background-color: black;
+        overflow-x: hidden;
+        justify-content: center;
+        background-position: center center;
+        /* Disable horizontal scrolling */
+        overscroll-behavior-x: none;
+        /* Disable horizontal overscroll */
+    }
+
+    .navi {
+       
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+
+    /* Home */
+    .home-container {
+        max-width: 750px;
+        padding: 20px;
+        text-align: center;
+        justify-content: center;
+        align-items: stretch;
+        grid-template-columns: 30% 50% 30%;
+        grid-template-rows: 40% 10% 50%;
+    }
+
+    .detail-container {
+        grid-row: 1/2;
+        grid-column: 2/3;
+    }
+
+    .detail-circle {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        justify-self: center;
+        align-self: center;
+        /* box-shadow: none; */
+    }
+
+    .detail-img {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        margin: auto;
+    }
+
+    .name-container {
+        grid-row: 2/3;
+        grid-column: 1/3;
+        text-align: center;
+    }
+
+    .my-image {
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+
+    .skill-container {
+        grid-row: 1/4;
+        grid-column: 3/4;
+        flex-direction: row;
+    }
+
+    .social-container {
+        grid-row: 3/4;
+        grid-column: 1/2;
+    }
+
+    .entertain-container {
+        grid-row: 3/4;
+        grid-column: 2/3;
+    }
+
+    /* About */
+    .about-container {
+        padding: 20px;
+        text-align: center;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 60% 20% 20%;
+
+    }
+
+    .name-container h2 {
+        margin-bottom: 10px;
+    }
+
+    .personal-container {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    .image-container {
+        grid-column: 2/3;
+        grid-row: 2/3;
+    
+    }
+
+    .education-container {
+        grid-column: 3/4;
+        grid-row: 2/3;
+    }
+    
+    .professional-container {
+        grid-column: 1/2;
+        grid-row: 3/4;
+    }
+
+    .hobby-container {
+        grid-column: 2/3;
+        grid-row: 3/4;
+    }
+
+    .experience-container {
+        grid-column: 3/4;
+        grid-row: 3/4;
+    }
+
+    .display-container {
+        grid-column: 1/4;
+        grid-row: 1/2;
+    }
+
+    .about-title {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .about-content {
+        line-height: 1.6;
+    }
+    
+
+    .details-display {
+        width: 500px;
+        height: 275px;
+        
+    }
+
+    /* Work */
+    .work-container {
+        padding: 20px;
+    }
+
+    .work-item {
+        margin-bottom: 20px;
+    }
+
+    .work-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .work-item-title {
+        font-size: 1.2rem;
+        margin-top: 10px;
+    }
+
+    .work-item-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        background-color: #eee;
+        border-radius: 5px;
+    }
+
+    /* Contact */
+    .contact-container {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-input {
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .contact-textarea {
+        width: 100%;
+        height: 150px;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .contact-button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    /* Testimony */
+    .testimony-container {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .testimony-item {
+        margin-bottom: 20px;
+    }
+
+    .testimony-item img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimony-item-text {
+        margin-top: 10px;
+        line-height: 1.6;
+    }
+
+
+    /* FAQs */
+    .faqs-section h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .faq-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+}
+
