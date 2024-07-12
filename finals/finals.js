@@ -225,8 +225,8 @@ const workData = [
 const imagesData = [
     "finals/img1.jpg",
     "finals/img2.jpg",
-    "finals/img3.png",
-    "finals/img4.jpg"
+    "finals/img3.PNG",
+    "finals/img4.JPG"
 ];
 
 function displayEducation() {
