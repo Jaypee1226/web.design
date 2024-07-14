@@ -57,75 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// const fullNameBtn = document.getElementById('fullNameBtn');
-// const primaryBtn = document.getElementById('primaryBtn');
-// const secondaryBtn = document.getElementById('secondaryBtn');
-// const tertiaryBtn = document.getElementById('tertiaryBtn');
-// const htmlBtn = document.getElementById('htmlBtn');
-// const cssBtn = document.getElementById('cssBtn');
-// const jsBtn = document.getElementById('jsBtn');
-// const baBtn = document.getElementById('baBtn');
-// const pythonBtn = document.getElementById('pythonBtn');
-
-
-// const detailsDisplay = document.getElementById('detailsDisplay');
-
-
-// fullNameBtn.addEventListener('click', () => {
-//     detailsDisplay.innerHTML = `
-//         <h3>Personal Details</h3>
-//         <p>Full Name: John Patrick P. San Roque</p>
-//         <p>Date of Birth: December 26, 2002</p>
-//         <p>Address: San Miguel, Bulacan</p>
-//     `;
-// });
-
-// educBtn.addEventListener('click', () => {
-//     detailsDisplay.innerHTML = `
-//         <h3>Primary Education</h3>
-//         <p>School: School of Mount St. Mary, Inc.</p>
-//         <p>Year: 2000 - 2006</p>
-//     `;
-
-//     detailsDisplay.innerHTML = `
-//         <h3>Secondary Education</h3>
-//         <p>School: School of Mount St. Mary, Inc.</p>
-//         <p>Year: 2006 - 2012</p>
-//     `;
-
-//     detailsDisplay.innerHTML = `
-//     <h3>Tertiary Education</h3>
-//     <p>Far Eastern University</p>
-//     <p>Institute of Technology</p>
-//     <p>BS Information Technology</p>
-//     <p>2023 - 2027</p>
-// `;
-// });
-
-
-// htmlBtn.addEventListener('click', () => {
-//     detailsDisplay.innerHTML = `
-//         <h3>HTML Proficiency</h3>
-//         <p>Level: Beginner</p>
-//         <p>Experience: 1 semester</p>
-//     `;
-// });
-
-// cssBtn.addEventListener('click', () => {
-//     detailsDisplay.innerHTML = `
-//         <h3>CSS Proficiency</h3>
-//        <p>Level: Beginner</p>
-//         <p>Experience: 1 semester</p>
-//     `;
-// });
-
-// jsBtn.addEventListener('click', () => {
-//     detailsDisplay.innerHTML = `
-//         <h3>JavaScript Proficiency</h3>
-//         <p>Level: Beginner</p>
-//         <p>Experience: 1 semester</p>
-//     `;
-// });
 
 document.addEventListener("DOMContentLoaded", function() {
     const cells = document.querySelectorAll(".cell");
@@ -200,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const educationData = [
     { type: "Elementary", logo: "finals/smsm.jpg", name: "School of Mount St. Mary, Inc.", duration: "6 years" },
     { type: "High-School", logo: "finals/smsm.jpg", name: "School of Mount St. Mary, Inc.", duration: "6 years" },
-    { type: "College", logo: "https://upload.wikimedia.org/wikipedia/en/6/62/FEU_Tech_official_seal.png", name: "Far Eastern University Institute of Technology", duration: "Ongoing" }
+    { type: "College", logo: "https://upload.wikimedia.org/wikipedia/en/6/62/FEU_Tech_official_seal.png", name: "Far Eastern University Institute of Technology", duration: "2023-2027", degree:"BSIT-BA" }
 ];
 
 const skillsData = [
@@ -218,15 +149,16 @@ const hobbiesData = [
 ];
 
 const workData = [
-    { logo: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/canva-icon.png", name : "Canva PH", years: "2018-2022" },
-    { logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Procter_%26_Gamble_logo.svg/800px-Procter_%26_Gamble_logo.svg.png", name: "P&G Philippines", years: "2023-present" }
+    {logo: "https://logos-world.net/wp-content/uploads/2021/02/JP-Morgan-Chase-Symbol.png", name: "JPMorganChase", years :"Internship 2027"},
+    { logo: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/canva-icon.png", name : "Canva PH", years: "2027-2029" },
+    { logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Procter_%26_Gamble_logo.svg/800px-Procter_%26_Gamble_logo.svg.png", name: "P&G Philippines", years: "2029-present" }
 ];
 
 const imagesData = [
     "finals/img1.jpg",
     "finals/img2.jpg",
-    "/finals/img3.PNG",
-    "/finals/img4.JPG",
+    "finals/img3.png",
+    "finals/img4.jpg",
     "finals/img5.jpg"
 ];
 
@@ -239,6 +171,7 @@ function displayEducation() {
                 <div>
                     <p>${edu.type}: ${edu.name}</p>
                     <p>${edu.duration}</p>
+                    <p>${edu.degree}</p>
                 </div>
             </div>
         `;
@@ -349,4 +282,15 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
-  
+
+  document.getElementById('menu-toggle').addEventListener('click', function () {
+    var menuList = document.getElementById('menu-list');
+    menuList.classList.toggle('active');
+});
+
+document.querySelectorAll('.m-list a').forEach(function(link) {
+    link.addEventListener('click', function() {
+        var menuList = document.getElementById('menu-list');
+        menuList.classList.remove('active');
+    });
+});
