@@ -57,6 +57,76 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// const fullNameBtn = document.getElementById('fullNameBtn');
+// const primaryBtn = document.getElementById('primaryBtn');
+// const secondaryBtn = document.getElementById('secondaryBtn');
+// const tertiaryBtn = document.getElementById('tertiaryBtn');
+// const htmlBtn = document.getElementById('htmlBtn');
+// const cssBtn = document.getElementById('cssBtn');
+// const jsBtn = document.getElementById('jsBtn');
+// const baBtn = document.getElementById('baBtn');
+// const pythonBtn = document.getElementById('pythonBtn');
+
+
+// const detailsDisplay = document.getElementById('detailsDisplay');
+
+
+// fullNameBtn.addEventListener('click', () => {
+//     detailsDisplay.innerHTML = `
+//         <h3>Personal Details</h3>
+//         <p>Full Name: John Patrick P. San Roque</p>
+//         <p>Date of Birth: December 26, 2002</p>
+//         <p>Address: San Miguel, Bulacan</p>
+//     `;
+// });
+
+// educBtn.addEventListener('click', () => {
+//     detailsDisplay.innerHTML = `
+//         <h3>Primary Education</h3>
+//         <p>School: School of Mount St. Mary, Inc.</p>
+//         <p>Year: 2000 - 2006</p>
+//     `;
+
+//     detailsDisplay.innerHTML = `
+//         <h3>Secondary Education</h3>
+//         <p>School: School of Mount St. Mary, Inc.</p>
+//         <p>Year: 2006 - 2012</p>
+//     `;
+
+//     detailsDisplay.innerHTML = `
+//     <h3>Tertiary Education</h3>
+//     <p>Far Eastern University</p>
+//     <p>Institute of Technology</p>
+//     <p>BS Information Technology</p>
+//     <p>2023 - 2027</p>
+// `;
+// });
+
+
+// htmlBtn.addEventListener('click', () => {
+//     detailsDisplay.innerHTML = `
+//         <h3>HTML Proficiency</h3>
+//         <p>Level: Beginner</p>
+//         <p>Experience: 1 semester</p>
+//     `;
+// });
+
+// cssBtn.addEventListener('click', () => {
+//     detailsDisplay.innerHTML = `
+//         <h3>CSS Proficiency</h3>
+//        <p>Level: Beginner</p>
+//         <p>Experience: 1 semester</p>
+//     `;
+// });
+
+// jsBtn.addEventListener('click', () => {
+//     detailsDisplay.innerHTML = `
+//         <h3>JavaScript Proficiency</h3>
+//         <p>Level: Beginner</p>
+//         <p>Experience: 1 semester</p>
+//     `;
+// });
+
 document.addEventListener("DOMContentLoaded", function() {
     const cells = document.querySelectorAll(".cell");
     const message = document.querySelector(".message");
@@ -155,8 +225,8 @@ const workData = [
 const imagesData = [
     "finals/img1.jpg",
     "finals/img2.jpg",
-    "finals/img3.png",
-    "finals/img4.jpg",
+    "/finals/img3.PNG",
+    "/finals/img4.JPG",
     "finals/img5.jpg"
 ];
 
