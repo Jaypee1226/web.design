@@ -1,61 +1,57 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.getElementById('slider');
-    const sliderHandle = document.getElementById('slider-handle');
-    const sliderText = document.getElementById('slider-text');
-    const mainContent = document.getElementById('main-content');
-    const unlockContainer = document.getElementById('unlock-container');
+document.addEventListener("DOMContentLoaded", function() {
+    var handle = document.getElementById("handle");
+    var slider = document.getElementById("slider");
+    var unlockScreen = document.getElementById("unlock-screen");
 
-    let isDragging = false;
-    let startX;
-    let sliderWidth;
+    var isDragging = false;
+    var startX, currentX;
 
-    sliderHandle.addEventListener('mousedown', (e) => {
-        e.preventDefault(); // Prevent default behavior of mouse down (e.g., text selection)
+    handle.addEventListener("mousedown", startDrag);
+    document.addEventListener("mousemove", doDrag);
+    document.addEventListener("mouseup", stopDrag);
 
+    handle.addEventListener("touchstart", startDrag);
+    document.addEventListener("touchmove", doDrag);
+    document.addEventListener("touchend", stopDrag);
+
+    function startDrag(e) {
         isDragging = true;
-        startX = e.pageX;
-        sliderWidth = slider.offsetWidth - sliderHandle.offsetWidth;
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', onMouseUp);
-    });
+        startX = e.type.includes("mouse") ? e.clientX : e.touches[0].clientX;
+        handle.style.transition = "none";
+    }
 
-    const onMouseMove = (e) => {
+    function doDrag(e) {
         if (isDragging) {
-            let offsetX = e.pageX - startX;
-
-            if (offsetX > 0 && offsetX <= sliderWidth) {
-                sliderHandle.style.left = offsetX + 'px';
-                sliderText.style.opacity = 1 - offsetX / sliderWidth;
-            } else if (offsetX > sliderWidth) {
-                unlockSlider();
+            currentX = e.type.includes("mouse") ? e.clientX : e.touches[0].clientX;
+            var offset = currentX - startX;
+            if (offset >= 0 && offset <= (slider.offsetWidth - handle.offsetWidth)) {
+                handle.style.left = offset + "px";
+                var percentage = offset / (slider.offsetWidth - handle.offsetWidth);
+                slider.style.backgroundPosition = `${percentage * 100}% 0`;
             }
         }
-    };
+    }
 
-    const onMouseUp = () => {
+    function stopDrag() {
         if (isDragging) {
             isDragging = false;
-            resetSlider();
-            document.removeEventListener('mousemove', onMouseMove);
-            document.removeEventListener('mouseup', onMouseUp);
+            handle.style.transition = "left 0.3s, transform 0.3s, box-shadow 0.3s";
+            if (parseInt(handle.style.left) >= (slider.offsetWidth - handle.offsetWidth - 10)) {
+                handle.style.transform = "scale(1.2)";
+                setTimeout(function() {
+                    unlockScreen.style.display = "none";
+                    document.body.classList.remove("hidden");
+                }, 300);
+            } else {
+                handle.style.left = "0";
+                slider.style.backgroundPosition = "0 0";
+                handle.style.transform = "scale(1)";
+            }
         }
-    };
+    }
 
-    const unlockSlider = () => {
-        sliderHandle.style.left = sliderWidth + 'px';
-        sliderText.style.opacity = 0;
-        setTimeout(() => {
-            unlockContainer.style.display = 'none';
-            mainContent.style.display = 'flex'; // Show main content after unlocking
-        }, 500); // Adjust the delay time as needed
-    };
-
-    const resetSlider = () => {
-        sliderHandle.style.left = '0';
-        sliderText.style.opacity = '1';
-    };
+    document.body.classList.add("hidden");
 });
-
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -157,8 +153,6 @@ const workData = [
 const imagesData = [
     "finals/img1.jpg",
     "finals/img2.jpg",
-    "finals/img3.png",
-    "finals/img4.jpg",
     "finals/img5.jpg"
 ];
 
