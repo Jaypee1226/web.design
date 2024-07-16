@@ -125,8 +125,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   const educationData = [
-    { type: "Elementary", logo: "finals/smsm.jpg", name: "School of Mount St. Mary, Inc.", duration: "6 years" },
-    { type: "High-School", logo: "finals/smsm.jpg", name: "School of Mount St. Mary, Inc.", duration: "6 years" },
+    { type: "Elementary", logo: "finals/smsm.jpg", name: "School of Mount St. Mary, Inc.", duration: "6 years", degree: ""},
+    { type: "High-School", logo: "finals/smsm.jpg", name: "School of Mount St. Mary, Inc.", duration: "6 years", degree: "" },
     { type: "College", logo: "https://upload.wikimedia.org/wikipedia/en/6/62/FEU_Tech_official_seal.png", name: "Far Eastern University Institute of Technology", duration: "2023-2027", degree:"BSIT-BA" }
 ];
 
