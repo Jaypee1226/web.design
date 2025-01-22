@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Problem 1</title>
+    <link rel="stylesheet" href="MachineProb1.css">
+</head>
+
+<body>
+
+    <button id="colorToggleBtn">Change Theme</button>
+
+    <div class="resume-container" id="resume">
+        <header class="header">
+            <div class="left-section">
+                <h1 class="name" id="name">John Patrick P. San Roque</h1>
+                <div class="contact-info">
+                    <p class="sub-detail">Address : San Miguel, Bulacan | Sampaloc, Manila</p>
+                    <p class="sub-detail">Contact : +63 917 837 1962</p>
+                    <p class="sub-detail">Email : sanroquejohnpatrick26@gmail.com</p>
+                </div>
+            </div>
+            <img src="dp.jpg" alt="" class="profile-picture">
+        </header>
+
+        <section class="section">
+            <h2 class="objective-heading" id="objective-heading">Objective</h2>
+            <p class="sub-detail">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore deserunt qui laboriosam aut magni iusto pariatur exercitationem tenetur, earum tempora.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2 class="education-heading" id="education-heading">Educational Background</h2>
+            <div class="education-details">
+                <h4>Tertiary</h4>
+                <p>Bachelor of Science in Information Technology</p>
+                <p>FEU Institute of Technology | 2023 - 2027</p>
+                <h4>Secondary</h4>
+                <p>School of Mount St. Mary, Inc. | 2015 - 2021</p>
+                <h4>Primary</h4>
+                <p>School of Mount St. Mary, Inc. | 2009 - 2015</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="skills-heading" id="skills-heading">Skills</h2>
+            <p class="sub-detail"><strong>Proficient in</strong> : Microsoft Office</p>
+            <p class="sub-detail"><strong>Basic knowledge of</strong> : HTML & CSS, C++, Java, & Python</p>
+            <p class="sub-detail"><strong>Other Skills</strong> : Excellent teamwork and communication skills</p>
+        </section>
+    </div>
+
+    <script>
+        let resume = document.getElementById('resume');
+        let colorToggleBtn = document.getElementById('colorToggleBtn');
+
+        let isDarkTheme = false;
+
+        colorToggleBtn.addEventListener('click', function () {
+            isDarkTheme = !isDarkTheme;
+
+            if (isDarkTheme) {
+                document.body.classList.add('dark-theme');
+                document.body.classList.remove('light-theme');
+            } else {
+                document.body.classList.add('light-theme');
+                document.body.classList.remove('dark-theme');
+            }
+        });
+    </script>
+</body>
+
+</html>
