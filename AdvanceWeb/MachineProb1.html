@@ -28,48 +28,110 @@
         <section class="section">
             <h2 class="objective-heading" id="objective-heading">Objective</h2>
             <p class="sub-detail">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore deserunt qui laboriosam aut magni iusto pariatur exercitationem tenetur, earum tempora.
+                To apply my knowledge and skills in Information Technology to contribute to innovative and impactful
+                projects, particularly in areas such as software development, web design, and data analytics. 
+                Additionally, I am eager to work in a dynamic environment that fosters collaboration and professional
+                growth, enabling me to continuously enhance my technical expertise, analytical abilities, and
+                interpersonal skills while contributing to organizational success.
             </p>
         </section>
 
         <section class="section">
             <h2 class="education-heading" id="education-heading">Educational Background</h2>
             <div class="education-details">
-                <h4>Tertiary</h4>
-                <p>Bachelor of Science in Information Technology</p>
-                <p>FEU Institute of Technology | 2023 - 2027</p>
-                <h4>Secondary</h4>
-                <p>School of Mount St. Mary, Inc. | 2015 - 2021</p>
-                <h4>Primary</h4>
-                <p>School of Mount St. Mary, Inc. | 2009 - 2015</p>
+                <div class="education-entry">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/6/62/FEU_Tech_official_seal.png" alt="" class="education-logo">
+                    <div>
+                        <h4>Tertiary</h4>
+                        <p>Bachelor of Science in Information Technology</p>
+                        <p>FEU Institute of Technology | 2023 - 2027</p>
+                    </div>
+                </div>
+                <div class="education-entry">
+                    <img src="smsm.jpg" alt="" class="education-logo">
+                    <div>
+                        <h4>Secondary</h4>
+                        <p>School of Mount St. Mary, Inc. | 2015 - 2021</p>
+                    </div>
+                </div>
+                <div class="education-entry">
+                    <img src="smsm.jpg" alt="" class="education-logo">
+                    <div>
+                        <h4>Primary</h4>
+                        <p>School of Mount St. Mary, Inc. | 2009 - 2015</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="section">
             <h2 class="skills-heading" id="skills-heading">Skills</h2>
-            <p class="sub-detail"><strong>Proficient in</strong> : Microsoft Office</p>
-            <p class="sub-detail"><strong>Basic knowledge of</strong> : HTML & CSS, C++, Java, & Python</p>
-            <p class="sub-detail"><strong>Other Skills</strong> : Excellent teamwork and communication skills</p>
+        
+            <div class="skills-category">
+                <h3><strong>Proficient in:</strong></h3>
+                <div class="skills-list">
+                    <div class="skill">
+                        <img src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/76-office-512.png" alt="Microsoft Office Logo" class="skill-icon">
+                        <p>Microsoft Office</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="skills-category">
+                <h3><strong>Basic Knowledge of:</strong></h3>
+                <div class="skills-list">
+                    <div class="skill">
+                        <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/badge-html-5-1024.png" alt="HTML Logo" class="skill-icon">
+                        <p>HTML & CSS</p>
+                    </div>
+                    <div class="skill">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/C%2B%2B_logo.png" alt="C++ Logo" class="skill-icon">
+                        <p>C++</p>
+                    </div>
+                    <div class="skill">
+                        <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/181_Java_logo_logos-512.png" alt="Java Logo" class="skill-icon">
+                        <p>Java</p>
+                    </div>
+                    <div class="skill">
+                        <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/267_Python_logo-512.png" alt="Python Logo" class="skill-icon">
+                        <p>Python</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="skills-category">
+                <h3><strong>Other Skills:</strong></h3>
+                <div class="skills-list">
+                    <div class="skill">
+                        <img src="https://cdn1.iconfinder.com/data/icons/business-and-finance-flat/512/teamwork_team_handshake_business_deal-512.png" alt="Teamwork Logo" class="skill-icon">
+                        <p>Teamwork</p>
+                    </div>
+                    <div class="skill">
+                        <img src="https://cdn0.iconfinder.com/data/icons/aami-flat-business-set-1/64/business-13-512.png" alt="Communication Logo" class="skill-icon">
+                        <p>Communication</p>
+                    </div>
+                </div>
+            </div>
         </section>
+        
+        
     </div>
 
     <script>
-        let resume = document.getElementById('resume');
         let colorToggleBtn = document.getElementById('colorToggleBtn');
-
-        let isDarkTheme = false;
+        
+        document.body.classList.add('light-theme');
 
         colorToggleBtn.addEventListener('click', function () {
-            isDarkTheme = !isDarkTheme;
-
-            if (isDarkTheme) {
-                document.body.classList.add('dark-theme');
+            if (document.body.classList.contains('light-theme')) {
                 document.body.classList.remove('light-theme');
+                document.body.classList.add('dark-theme');
             } else {
-                document.body.classList.add('light-theme');
                 document.body.classList.remove('dark-theme');
+                document.body.classList.add('light-theme');
             }
         });
+
     </script>
 </body>
 
