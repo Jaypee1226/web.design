@@ -12,6 +12,8 @@ body {
     align-items: center;
     height: 100vh;
     background: url(https://img.freepik.com/free-vector/white-abstract-wallpaper_23-2148830028.jpg?t=st=1738735796~exp=1738739396~hmac=e6277d9cf08900eb87177e8593304fcfc901733a5b95b35a79a569938e63c9b1&w=1380);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
@@ -43,25 +45,24 @@ body {
 
 .button-container button:hover {
     transform: scale(1.1);
+    opacity: 0.9;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.monday { background-color: #0000ff; }
+.monday { background-color: #4169E1; }
 
-.tuesday { background-color: red; }
+.tuesday { background-color: coral; }
 
-.wednesday { background-color: #ffff00;}
+.wednesday { background-color: mediumseagreen;}
 
-.thursday { background-color: #800080; }
+.thursday { background-color: goldenrod; }
 
-.friday { background-color: #008000; }
+.friday { background-color: turquoise; }
 
-.saturday { background-color: #ffa500; }
+.saturday { background-color: slateblue; }
 
-.sunday { background-color: #008080; }
+.sunday { background-color: tomato; }
 
-#wed{
-    color: black;
-}
 
 .main-content {
     flex-grow: 1;
