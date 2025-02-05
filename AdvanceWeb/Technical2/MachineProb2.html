@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day Color Box</title>
+    <title>Day of the Week</title>
     <link rel="stylesheet" href="MP3.css">
 </head>
 
@@ -12,13 +12,13 @@
 
     <div class="container">
         <div class="button-container">
-            <button class="monday" data-day="Monday">Monday</button>
-            <button class="tuesday" data-day="Tuesday">Tuesday</button>
-            <button class="wednesday" data-day="Wednesday">Wednesday</button>
-            <button class="thursday" data-day="Thursday">Thursday</button>
-            <button class="friday" data-day="Friday">Friday</button>
-            <button class="saturday" data-day="Saturday">Saturday</button>
-            <button class="sunday" data-day="Sunday">Sunday</button>
+            <button class="monday" day-week="Monday">MONDAY</button>
+            <button class="tuesday" day-week="Tuesday">TUESDAY</button>
+            <button id = "wed" class="wednesday" day-week="Wednesday">WEDNESDAY</button>
+            <button class="thursday" day-week="Thursday">THURSDAY</button>
+            <button class="friday" day-week="Friday">FRIDAY</button>
+            <button class="saturday" day-week="Saturday">SATURDAY</button>
+            <button class="sunday" day-week="Sunday">SUNDAY</button>
         </div>
 
         <div class="main-content">
@@ -39,7 +39,7 @@
 
             buttons.forEach(button => {
                 button.addEventListener("click", () => {
-                    const day = button.getAttribute("data-day");
+                    const day = button.getAttribute("day-week");
                     const color = getComputedStyle(button).backgroundColor;
 
                     if (currentDay === day) return;
