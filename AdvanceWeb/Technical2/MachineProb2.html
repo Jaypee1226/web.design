@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day Color Box</title>
+    <link rel="stylesheet" href="MP3.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="button-container">
+            <button class="monday" data-day="Monday">Monday</button>
+            <button class="tuesday" data-day="Tuesday">Tuesday</button>
+            <button class="wednesday" data-day="Wednesday">Wednesday</button>
+            <button class="thursday" data-day="Thursday">Thursday</button>
+            <button class="friday" data-day="Friday">Friday</button>
+            <button class="saturday" data-day="Saturday">Saturday</button>
+            <button class="sunday" data-day="Sunday">Sunday</button>
+        </div>
+
+        <div class="main-content">
+            <div class="box-container">
+                <div id="box" class="hidden"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const buttons = document.querySelectorAll(".button-container button");
+            const animatedBox = document.getElementById("box");
+
+            let currentDay = null;
+
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const day = button.getAttribute("data-day");
+                    const color = getComputedStyle(button).backgroundColor;
+
+                    if (currentDay === day) return;
+                    currentDay = day;
+                    animatedBox.style.transition = "top 0.5s ease-in-out";
+                    animatedBox.style.top = "-120%";
+                    setTimeout(() => {
+                        animatedBox.style.backgroundColor = color;
+                        animatedBox.style.transition = "top 0.8s ease-in-out, background-color 0.5s ease-in-out 0.5s";
+                        animatedBox.style.top = "0";
+                    }, 500);
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
