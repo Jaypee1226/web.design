@@ -11,10 +11,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
+    background: url(https://img.freepik.com/free-vector/white-abstract-wallpaper_23-2148830028.jpg?t=st=1738735796~exp=1738739396~hmac=e6277d9cf08900eb87177e8593304fcfc901733a5b95b35a79a569938e63c9b1&w=1380);
 }
-
-
 
 .container {
     display: flex;
