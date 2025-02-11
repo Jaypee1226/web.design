@@ -85,13 +85,15 @@ body {
     position: absolute;
     top: -120%;
     border-radius: 10px;
-    background-color: lightgray;
-    color: white;
+    border: 20px solid lightgray;
+    background-color: transparent;
+    color: black; 
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
-    transition: top 0.8s ease-in-out, background-color 0.5s ease-in-out 0.5s;
+    font-size: 32px;
+    font-weight: bold;
+    transition: top 0.8s ease-in-out, border-color 0.5s ease-in-out 0.5s;
 }
 
 .hidden {
