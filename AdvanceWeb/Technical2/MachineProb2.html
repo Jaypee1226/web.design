@@ -14,7 +14,7 @@
         <div class="button-container">
             <button class="monday" day-week="Monday">MONDAY</button>
             <button class="tuesday" day-week="Tuesday">TUESDAY</button>
-            <button id = "wed" class="wednesday" day-week="Wednesday">WEDNESDAY</button>
+            <button id="wed" class="wednesday" day-week="Wednesday">WEDNESDAY</button>
             <button class="thursday" day-week="Thursday">THURSDAY</button>
             <button class="friday" day-week="Friday">FRIDAY</button>
             <button class="saturday" day-week="Saturday">SATURDAY</button>
@@ -31,29 +31,37 @@
 
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const buttons = document.querySelectorAll(".button-container button");
-            const animatedBox = document.getElementById("box");
+       document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".button-container button");
+    const animatedBox = document.getElementById("box");
 
-            let currentDay = null;
+    let currentDay = null;
 
-            buttons.forEach(button => {
-                button.addEventListener("click", () => {
-                    const day = button.getAttribute("day-week");
-                    const color = getComputedStyle(button).backgroundColor;
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const day = button.getAttribute("day-week");
+            const color = getComputedStyle(button).backgroundColor; 
 
-                    if (currentDay === day) return;
-                    currentDay = day;
-                    animatedBox.style.transition = "top 0.5s ease-in-out";
-                    animatedBox.style.top = "-120%";
-                    setTimeout(() => {
-                        animatedBox.style.backgroundColor = color;
-                        animatedBox.style.transition = "top 0.8s ease-in-out, background-color 0.5s ease-in-out 0.5s";
-                        animatedBox.style.top = "0";
-                    }, 500);
-                });
-            });
+            if (currentDay === day) return;
+            currentDay = day;
+            
+
+            animatedBox.style.transition = "top 0.5s ease-in-out";
+            animatedBox.style.top = "-120%";
+
+            setTimeout(() => {
+                animatedBox.style.borderColor = color;
+                animatedBox.style.color = color; 
+                animatedBox.textContent = day;   
+                animatedBox.style.transition = "top 0.8s ease-in-out, border-color 0.5s ease-in-out 0.5s, color 0.5s ease-in-out 0.5s";
+                animatedBox.style.top = "0";
+            }, 500);
         });
+    });
+});
+
+
+
     </script>
 
 </body>
