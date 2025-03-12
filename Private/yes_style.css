@@ -30,7 +30,7 @@ body {
     margin-bottom: 15px;
     text-align: center;
     background: linear-gradient(45deg, #d6336c, #8e44ad);
-    -webkit-background-clip: text;
+    /* -webkit-background-clip: text; */
     -webkit-text-fill-color: transparent;
     animation: softFlicker 2s infinite alternate, floatText 3s ease-in-out infinite;
 }
