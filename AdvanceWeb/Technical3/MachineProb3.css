@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background: linear-gradient(180deg, #222 0%, #000 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,15 +16,18 @@ body {
 }
 
 #display {
-    width: 100%;
+    width: 90%;
     height: 80px;
     text-align: right;
-    font-size: 2rem;
+    font-size: 3rem;
     padding: 10px;
     border: none;
-    background: black;
+    background-color: #333;
     color: white;
     outline: none;
+    caret-color: transparent;
+    box-shadow: inset 0px 0px 5px rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
 }
 
 .buttons {
@@ -42,6 +45,12 @@ button {
     border-radius: 50%;
     cursor: pointer;
     transition: 0.2s;
+    outline: none;
+    user-select: none; 
+}
+
+button:focus {
+    outline: none;
 }
 
 .grey { background-color: #a5a5a5; color: black; }
