@@ -1,8 +1,12 @@
+
 let display = document.getElementById("display");
 
 function appendValue(value) {
     if (value === "." && display.value.includes(".")) return;
     display.value += value;
+}
+function backspace() {
+    display.value = display.value.slice(0, -1);
 }
 
 function clearDisplay() {
