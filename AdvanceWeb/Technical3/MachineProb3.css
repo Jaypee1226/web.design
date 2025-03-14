@@ -60,6 +60,18 @@ button:focus {
     outline: none;
 }
 
+.wide {
+    grid-column: span 2; 
+    width: 150px;
+    border-radius: 50px;
+}
+
+.tall {
+    grid-row: span 2; 
+    height: 150px;
+    border-radius: 50px;
+}
+
 .grey { background-color: #a5a5a5; color: black; }
 .dark-grey { background-color: #333; color: white; }
 .orange { background-color: #ff9500; color: white; }

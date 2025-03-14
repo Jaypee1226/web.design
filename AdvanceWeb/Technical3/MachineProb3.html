@@ -12,28 +12,27 @@
 
         <div class="buttons">
             <button class="grey" onclick="clearDisplay()">AC</button>
-            <button class="grey" onclick="toggleSign()">+/-</button>
             <button class="grey" onclick="backspace()">⌫</button>
             <button class="orange" onclick="appendValue('/')">&divide;</button>
+            <button class="orange" onclick="appendValue('*')">&times;</button>
 
             <button class="dark-grey" onclick="appendValue('7')">7</button>
             <button class="dark-grey" onclick="appendValue('8')">8</button>
             <button class="dark-grey" onclick="appendValue('9')">9</button>
-            <button class="orange" onclick="appendValue('*')">&times;</button>
+            <button class="orange" onclick="appendValue('-')">-</button>
 
             <button class="dark-grey" onclick="appendValue('4')">4</button>
             <button class="dark-grey" onclick="appendValue('5')">5</button>
             <button class="dark-grey" onclick="appendValue('6')">6</button>
-            <button class="orange" onclick="appendValue('-')">-</button>
+            <button class="orange" onclick="appendValue('+')">+</button>
 
             <button class="dark-grey" onclick="appendValue('1')">1</button>
             <button class="dark-grey" onclick="appendValue('2')">2</button>
             <button class="dark-grey" onclick="appendValue('3')">3</button>
-            <button class="orange" onclick="appendValue('+')">+</button>
+            <button class="orange tall" onclick="calculate()">=</button> 
 
             <button class="dark-grey wide" onclick="appendValue('0')">0</button>
             <button class="dark-grey" onclick="appendValue('.')">.</button>
-            <button class="orange" onclick="calculate()">=</button>
         </div>
     </div>
 
