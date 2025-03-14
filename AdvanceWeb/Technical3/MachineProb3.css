@@ -79,9 +79,3 @@ button:focus {
 .grey:hover { background-color: #cfcfcf; }
 .dark-grey:hover { background-color: #666; }
 .orange:hover { background-color: #ffb347; }
-
-.wide {
-    grid-column: span 2;
-    width: 150px;
-    border-radius: 50px;
-}
