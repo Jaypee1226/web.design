@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison de Luxe - Restaurant Guide</title>
+    <link rel="stylesheet" href="MachineProb4.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="title">
+            <img src="eiffel-tower.png" alt="Maison de Luxe Logo" class="logo">
+            <h1>Maison de Luxe</h1>
+        </div>
+        <button id="main-menu" class="main-menu">Main Menu</button>
+    </header>
+
+    <!-- Food Cards -->
+    <section class="food-cards">
+        <div class="card" data-name="Beef Wellington" 
+             data-desc="Beef Wellington is an exquisite British delicacy featuring a tender beef fillet coated with a rich mushroom duxelles, wrapped in a delicate layer of prosciutto, and encased in a golden, flaky puff pastry. Served with a velvety red wine reduction, this dish is a true fine-dining masterpiece." 
+             data-image="Beef_Wellington.jpg" 
+             data-cuisine="British" 
+             data-cooking="Baked" 
+             data-ingredients="Beef fillet, puff pastry, mushrooms, prosciutto, egg wash, Dijon mustard, thyme">
+            <img src="Beef_Wellington.jpg" alt="Beef Wellington">
+            <h3>Beef Wellington</h3>
+            <div class="hover-description">A luxurious British dish with beef wrapped in puff pastry.</div>
+        </div>
+    
+        <div class="card" data-name="Lobster Risotto" 
+             data-desc="Lobster Risotto is a decadent Italian dish made with creamy Arborio rice slowly cooked in a flavorful lobster broth. Infused with butter, white wine, and Parmesan cheese, each spoonful delivers a perfect balance of rich seafood taste and velvety texture." 
+             data-image="Lobster.png" 
+             data-cuisine="Italian" 
+             data-cooking="Simmered" 
+             data-ingredients="Arborio rice, lobster, butter, white wine, Parmesan cheese, garlic, shallots">
+            <img src="Lobster.png" alt="Lobster Risotto">
+            <h3>Lobster Risotto</h3>
+            <div class="hover-description">Creamy risotto infused with rich lobster essence.</div>
+        </div>
+    
+        <div class="card" data-name="New York Steak" 
+             data-desc="The New York Strip Steak is a bold and flavorful cut, perfectly seared to lock in its natural juices. Cooked over high heat and basted with butter, garlic, and herbs, this classic American dish delivers a rich, smoky char and a tender, juicy bite." 
+             data-image="NY.jpg" 
+             data-cuisine="American" 
+             data-cooking="Grilled" 
+             data-ingredients="Beef steak, salt, pepper, butter, garlic, rosemary">
+            <img src="NY.jpg" alt="New York Steak">
+            <h3>New York Steak</h3>
+            <div class="hover-description">A perfectly grilled, juicy strip steak.</div>
+        </div>
+    
+        <div class="card" data-name="Pan-Seared Duck" 
+             data-desc="Pan-Seared Duck Breast is a French culinary delight featuring a crispy, golden-brown skin with succulent, tender meat underneath. Paired with a sweet and tangy orange sauce, this dish strikes a perfect balance between rich, savory flavors and refreshing citrus notes." 
+             data-image="duck.jpg" 
+             data-cuisine="French" 
+             data-cooking="Pan-seared" 
+             data-ingredients="Duck breast, salt, pepper, orange sauce, honey, balsamic vinegar">
+            <img src="duck.jpg" alt="Pan-Seared Duck">
+            <h3>Pan-Seared Duck</h3>
+            <div class="hover-description">Crispy duck breast with a sweet citrus glaze.</div>
+        </div>
+    </section>
+
+    <!-- Food Description Modal -->
+    <div id="food-description" class="food-description">
+        <img id="food-image" src="" alt="" style="width:100%; border-radius: 10px;">
+        <h2 id="food-title" aria-live="polite"></h2>
+        <p id="food-text" class="description-text"></p>
+        <p><strong>Cuisine:</strong> <span id="food-cuisine"></span></p>
+        <p><strong>Cooking Method:</strong> <span id="food-cooking"></span></p>
+        <p><strong>Ingredients:</strong> <span id="food-ingredients"></span></p>
+    </div>
+
+    <script src="MachineProb4.js"></script>
+</body>
+</html>
