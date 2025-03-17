@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Hide food description initially
+
     document.getElementById("food-description").style.display = "none";
 
     let cards = document.querySelectorAll(".card");
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Main Menu button closes the food description
+
     document.getElementById("main-menu").addEventListener("click", function () {
         closeFoodCard();
     });
