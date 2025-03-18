@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let img = card.getAttribute("data-image");
             let cuisine = card.getAttribute("data-cuisine");
             let cooking = card.getAttribute("data-cooking");
-            let dishes = card.getAttribute("data-dishes"); // Corrected
+            let dishes = card.getAttribute("data-dishes");
 
             openFoodCard(name, desc, img, cuisine, cooking, dishes);
         });
