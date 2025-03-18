@@ -22,9 +22,9 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    caret-color: transparent;
 }
 
-/* Adding the translucent filter */
 html::before {
     content: "";
     position: absolute;
@@ -32,59 +32,59 @@ html::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    background: rgba(0, 0, 0, 0.5); 
     z-index: 1;
 }
 
-/* Make sure content stays on top of the overlay */
+
 body > * {
     position: relative;
     z-index: 2;
 }
 
-/* Title Container - Updated */
+
 .title-container {
     position: relative;
     width: 100%;
     max-width: 800px;
     margin: 20px 0;
-    padding: 10px 20px; /* Reduced padding for a cleaner look */
-    text-align: left; /* Align content to the left */
-    border: none; /* Remove border */
-    box-shadow: none; /* Remove shadow */
+    padding: 10px 20px;
+    text-align: left; 
+    border: none;
+    box-shadow: none; 
 }
 
-/* Main Title - Stylish */
+
 .title-container h1 {
     font-family: "Playfair Display", serif;
-    font-size: 3rem; /* Reduced size for a more elegant look */
+    font-size: 4.5rem; 
     font-weight: 700;
     margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: #C5A357; /* Gold shade for a luxurious feel */
+    color: #C5A357;
 }
 
-/* Subtitle */
+
 .title-container h2 {
     font-family: "Poppins", sans-serif;
-    font-size: 1.3rem;
+    font-size: 2rem;
     font-weight: 500;
     margin-top: 5px;
-    color: white; /* Subtle gray for contrast */
+    color: white;
 }
 
-/* Description */
+
 .title-container p {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     margin-top: 5px;
     font-weight: 400;
-    color: white; /* Softer tone for text */
+    color: white; 
 }
 
 
 
-/* ============ Main Menu Button ============ */
+
 .main-menu {
     position: absolute;
     top: 20px;
@@ -106,7 +106,6 @@ body > * {
     color: #fff;
 }
 
-/* ============ Food Cards Container ============ */
 .food-container {
     display: flex;
     justify-content: center;
@@ -117,11 +116,11 @@ body > * {
     margin: auto;
 }
 
-/* ============ Food Card Styles ============ */
+
 .card {
     width: 260px;
-    height: 420px; /* Fixed height for consistent card size */
-    padding: 0; /* Remove padding */
+    height: 420px; 
+    padding: 0; 
     border-radius: 12px;
     text-align: center;
     cursor: pointer;
@@ -139,21 +138,20 @@ body > * {
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
 }
 
-/* ============ Card Image ============ */
 .card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Makes the image fill the space */
-    border-radius: 12px; /* Keep consistent border radius */
+    object-fit: cover; 
+    border-radius: 12px;
     position: absolute;
     top: 0;
     left: 0;
 }
 
-/* ============ Card Title ============ */
+
 .card-title {
     position: relative;
-    z-index: 2; /* Ensure the title is above the image */
+    z-index: 2; 
     font-size: 20px;
     font-weight: bold;
     color: #C5A357;
@@ -164,8 +162,6 @@ body > * {
     display: inline-block;
 }
 
-
-/* ============ Hover Description ============ */
 .hover-description {
     position: absolute;
     bottom: 0;
@@ -180,13 +176,11 @@ body > * {
     transition: opacity 0.3s ease-in-out;
 }
 
-/* Show Description on Hover */
+
 .food-card:hover .hover-description {
     opacity: 1;
 }
 
-/* ============ Food Modal / Description ============ */
-/* ============ Updated Food Modal / Description ============ */
 .food-description {
     display: none;
     position: fixed;
@@ -195,8 +189,8 @@ body > * {
     transform: translate(-50%, -50%);
     padding: 30px;
     border-radius: 12px;
-    width: 80%; /* Increased width */
-    max-width: 1000px; /* Larger modal */
+    width: 90%; 
+    max-width: 1000px; 
     z-index: 100;
     background: #FFFFFF;
     color: #222;
@@ -206,21 +200,21 @@ body > * {
     transition: opacity 0.3s ease-in-out;
 }
 
-/* Show Modal */
+
 .food-description.show {
     display: flex;
     opacity: 1;
 }
 
-/* Flex Layout for Modal - Updated */
+
 .food-description-content {
     display: grid;
-    grid-template-columns: 1fr 1.2fr; /* 2 columns, image takes 1/3, details take 2/3 */
+    grid-template-columns: 1fr 1.2fr;
     gap: 30px;
     align-items: stretch;
 }
 
-/* Image Section - Updated to fill full height */
+
 .food-image-container {
     width: 100%;
     height: 100%;
@@ -228,15 +222,14 @@ body > * {
     border-radius: 10px;
 }
 
-/* Ensure image fills the space */
+
 .food-image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cover entire section while maintaining aspect ratio */
+    object-fit: cover; 
     border-radius: 10px;
 }
 
-/* Text Section - Larger padding and better spacing */
 .food-details {
     display: flex;
     flex-direction: column;
@@ -245,9 +238,9 @@ body > * {
     padding: 10px 20px;
 }
 
-/* Title & Description */
+
 .food-details h2 {
-    font-size: 28px; /* Larger title */
+    font-size: 35px;
     font-weight: bold;
     margin-bottom: 12px;
     color: #C5A357;
@@ -259,7 +252,7 @@ body > * {
     margin-bottom: 15px;
 }
 
-/* Extra Details */
+
 .food-details p {
     font-size: 14px;
     margin: 8px 0;
