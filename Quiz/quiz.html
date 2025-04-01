@@ -133,744 +133,897 @@
     <div class="results" id="results"></div>
 
     <script>
-        const questions = [
-            // PL/SQL Basics (10 questions)
-            {
-                category: "PL/SQL Basics",
-                question: "Which of the following SQL statements can be directly executed in PL/SQL without using Dynamic SQL?",
-                options: [
-                    "CREATE TABLE statement (DDL)",
-                    "GRANT statement (DCL)",
-                    "SELECT statement with INTO clause",
-                    "ALTER USER statement (DDL)"
-                ],
-                answer: 2,
-                explanation: "In PL/SQL, you can directly execute SELECT statements (with INTO clause), DML statements (INSERT, UPDATE, DELETE), and transaction control statements. DDL and DCL statements require Dynamic SQL with EXECUTE IMMEDIATE."
-            },
-            {
-                category: "PL/SQL Basics",
-                question: "What is the purpose of the INTO clause in a PL/SQL SELECT statement?",
-                options: [
-                    "To specify the table to select data from",
-                    "To name the PL/SQL variables that will store the returned values",
-                    "To filter which rows are returned by the query",
-                    "To specify the order of the returned rows"
-                ],
-                answer: 1,
-                explanation: "The INTO clause in PL/SQL SELECT statements specifies the names of PL/SQL variables that will hold the values returned by the query. It appears between SELECT and FROM."
-            },
-            {
-                category: "PL/SQL Basics",
-                question: "Which of the following is NOT a valid DML operation in PL/SQL?",
-                options: [
-                    "INSERT",
-                    "UPDATE",
-                    "DELETE",
-                    "CREATE"
-                ],
-                answer: 3,
-                explanation: "CREATE is a DDL (Data Definition Language) statement, not DML (Data Manipulation Language). The main DML operations are INSERT, UPDATE, DELETE, and MERGE."
-            },
-            {
-                category: "PL/SQL Basics",
-                question: "What happens if a SELECT statement in PL/SQL returns no rows?",
-                options: [
-                    "The PL/SQL block continues execution with NULL values in the INTO variables",
-                    "The NO_DATA_FOUND exception is raised",
-                    "The TOO_MANY_ROWS exception is raised",
-                    "The program crashes with a runtime error"
-                ],
-                answer: 1,
-                explanation: "When a SELECT statement returns no rows, PL/SQL raises the predefined NO_DATA_FOUND exception. Proper exception handling should be implemented to deal with this case."
-            },
-            {
-                category: "PL/SQL Basics",
-                question: "Which statement is used to make pending database changes permanent?",
-                options: [
-                    "SAVEPOINT",
-                    "COMMIT",
-                    "ROLLBACK",
-                    "END TRANSACTION"
-                ],
-                answer: 1,
-                explanation: "COMMIT makes all pending changes in the current transaction permanent. ROLLBACK undoes them, and SAVEPOINT creates points within a transaction to which you can later roll back."
-            },
-            {
-                category: "PL/SQL Basics",
-                question: "What is the correct way to execute a DDL statement from within PL/SQL?",
-                options: [
-                    "Directly include the DDL statement in the PL/SQL block",
-                    "Use the EXECUTE IMMEDIATE statement",
-                    "Call a predefined procedure called EXEC_DDL",
-                    "DDL statements cannot be executed from PL/SQL"
-                ],
-                answer: 1,
-                explanation: "DDL statements must be executed using Dynamic SQL with the EXECUTE IMMEDIATE statement because they cannot be directly included in PL/SQL blocks."
-            },
-            {
-                category: "PL/SQL Basics",
-                question: "Which of the following is true about transaction control in PL/SQL?",
-                options: [
-                    "Each DML statement automatically commits the transaction",
-                    "Transactions must be explicitly started with a BEGIN TRANSACTION statement",
-                    "Changes are not permanent until a COMMIT is issued",
-                    "PL/SQL does not support transaction control statements"
-                ],
-                answer: 2,
-                explanation: "In PL/SQL, changes made by DML statements are not permanent until a COMMIT is issued. Transactions are implicitly started with the first DML statement and must be explicitly committed or rolled back."
-            },
-            {
-                category: "PL/SQL Basics",
-                question: "What happens if a SELECT statement in PL/SQL returns multiple rows?",
-                options: [
-                    "Only the first row is stored in the INTO variables",
-                    "The TOO_MANY_ROWS exception is raised",
-                    "The program crashes with a runtime error",
-                    "All rows are concatenated into the INTO variables"
-                ],
-                answer: 1,
-                explanation: "When a SELECT statement returns multiple rows but is expected to return only one (as with an INTO clause), PL/SQL raises the TOO_MANY_ROWS exception."
-            },
-            {
-                category: "PL/SQL Basics",
-                question: "Which of the following is NOT a valid PL/SQL block section?",
-                options: [
-                    "DECLARE",
-                    "EXECUTE",
-                    "BEGIN",
-                    "EXCEPTION"
-                ],
-                answer: 1,
-                explanation: "A PL/SQL block has three sections: DECLARE (optional), BEGIN (mandatory), and EXCEPTION (optional). There is no EXECUTE section."
-            },
-            {
-                category: "PL/SQL Basics",
-                question: "What is the purpose of the %TYPE attribute in PL/SQL?",
-                options: [
-                    "To specify the data type of a variable based on a database column",
-                    "To determine the storage type of a table",
-                    "To create a new data type",
-                    "To check the type of a variable at runtime"
-                ],
-                answer: 0,
-                explanation: "The %TYPE attribute lets you declare a variable with the same data type as a database column. For example: v_employee_name employees.last_name%TYPE;"
+const questions = [
+    // PL/SQL Basics (15 questions)
+    {
+        question: "Which of the following SQL statements can be directly executed in PL/SQL without using Dynamic SQL?",
+        options: [
+            "CREATE TABLE statement (DDL)",
+            "GRANT statement (DCL)",
+            "SELECT statement with INTO clause",
+            "ALTER USER statement (DDL)"
+        ],
+        answer: 2,
+        explanation: "In PL/SQL, you can directly execute SELECT statements (with INTO clause), DML statements (INSERT, UPDATE, DELETE), and transaction control statements. DDL and DCL statements require Dynamic SQL with EXECUTE IMMEDIATE."
+    },
+    {
+        question: "What is the purpose of the INTO clause in a PL/SQL SELECT statement?",
+        options: [
+            "To specify the table to select data from",
+            "To name the PL/SQL variables that will store the returned values",
+            "To define the join conditions between tables",
+            "To filter which rows should be returned"
+        ],
+        answer: 1,
+        explanation: "The INTO clause is mandatory in PL/SQL SELECT statements and specifies the names of PL/SQL variables that will hold the values returned by the query."
+    },
+    {
+        question: "Which of the following is NOT a valid DML statement in PL/SQL?",
+        options: [
+            "INSERT",
+            "UPDATE",
+            "DELETE",
+            "CREATE"
+        ],
+        answer: 3,
+        explanation: "CREATE is a DDL (Data Definition Language) statement, not DML (Data Manipulation Language). The main DML statements are INSERT, UPDATE, DELETE, and MERGE."
+    },
+    {
+        question: "What happens if a SELECT statement in PL/SQL returns more than one row without using a cursor?",
+        options: [
+            "Only the first row is stored in the variables",
+            "An error occurs",
+            "All rows are stored in an array",
+            "The statement executes successfully"
+        ],
+        answer: 1,
+        explanation: "A SELECT...INTO statement in PL/SQL expects exactly one row. If it returns multiple rows, Oracle raises the TOO_MANY_ROWS exception (ORA-01422)."
+    },
+    {
+        question: "Which transaction control statement would you use to make pending database changes permanent?",
+        options: [
+            "COMMIT",
+            "ROLLBACK",
+            "SAVEPOINT",
+            "SET TRANSACTION"
+        ],
+        answer: 0,
+        explanation: "COMMIT makes all pending changes in the current transaction permanent. ROLLBACK undoes them, and SAVEPOINT creates markers within a transaction for partial rollback."
+    },
+    {
+        question: "What is the implicit cursor in PL/SQL called?",
+        options: [
+            "CUR",
+            "SQL",
+            "IMPLICIT_CURSOR",
+            "DEFAULT_CURSOR"
+        ],
+        answer: 1,
+        explanation: "Oracle automatically creates an implicit cursor named SQL for all DML statements and SELECT statements that return a single row."
+    },
+    {
+        question: "Which implicit cursor attribute would you check to see how many rows were affected by the most recent DML statement?",
+        options: [
+            "%FOUND",
+            "%NOTFOUND",
+            "%ROWCOUNT",
+            "%ISOPEN"
+        ],
+        answer: 2,
+        explanation: "SQL%ROWCOUNT returns the number of rows affected by the most recent SQL statement. %FOUND and %NOTFOUND are boolean attributes, and %ISOPEN always returns FALSE for implicit cursors."
+    },
+    {
+        question: "What value does SQL%FOUND return after a SELECT statement finds no rows?",
+        options: [
+            "TRUE",
+            "FALSE",
+            "NULL",
+            "0"
+        ],
+        answer: 1,
+        explanation: "SQL%FOUND returns FALSE if the most recent SQL statement affected no rows. It returns TRUE if at least one row was affected."
+    },
+    {
+        question: "Which PL/SQL construct would you use to conditionally execute statements based on multiple possible values?",
+        options: [
+            "IF-THEN-ELSE",
+            "CASE",
+            "LOOP",
+            "GOTO"
+        ],
+        answer: 1,
+        explanation: "The CASE expression is ideal for conditional logic based on multiple possible values. IF-THEN-ELSE is better for simple true/false conditions."
+    },
+    {
+        question: "What is the main purpose of a PL/SQL record?",
+        options: [
+            "To store a single scalar value",
+            "To group related data items as a unit",
+            "To create database tables",
+            "To define cursor structures"
+        ],
+        answer: 1,
+        explanation: "A PL/SQL record is a composite datatype that groups related data items as a logical unit. Each field in the record has its own name and datatype."
+    },
+    {
+        question: "Which declaration creates a record variable based on the structure of the EMPLOYEES table?",
+        options: [
+            "emp_record EMPLOYEES%TYPE",
+            "emp_record TYPE IS RECORD OF EMPLOYEES",
+            "emp_record EMPLOYEES%ROWTYPE",
+            "emp_record RECORD LIKE EMPLOYEES"
+        ],
+        answer: 2,
+        explanation: "%ROWTYPE creates a record variable with fields matching the columns of a table (EMPLOYEES in this case). Each field has the same name and datatype as the corresponding column."
+    },
+    {
+        question: "What is the primary advantage of using %ROWTYPE for record declarations?",
+        options: [
+            "It improves performance",
+            "It automatically adapts to changes in table structure",
+            "It allows for custom field names",
+            "It reduces memory usage"
+        ],
+        answer: 1,
+        explanation: "The main advantage of %ROWTYPE is that it automatically adapts to changes in the table structure. If columns are added, removed, or modified, the record declaration doesn't need to change."
+    },
+    {
+        question: "Which PL/SQL control structure executes a sequence of statements while a condition is true?",
+        options: [
+            "FOR loop",
+            "Basic loop",
+            "WHILE loop",
+            "CASE statement"
+        ],
+        answer: 2,
+        explanation: "The WHILE loop executes statements repeatedly as long as the specified condition remains true. The condition is evaluated before each iteration."
+    },
+    {
+        question: "What is the key characteristic of a basic loop in PL/SQL?",
+        options: [
+            "It executes a fixed number of times",
+            "It requires a counter variable",
+            "It executes indefinitely without a condition",
+            "It can only be used with cursors"
+        ],
+        answer: 2,
+        explanation: "A basic loop has no built-in termination condition and will execute indefinitely unless you include an EXIT or EXIT WHEN statement."
+    },
+    {
+        question: "Which statement would you use to exit a loop when a condition becomes true?",
+        options: [
+            "BREAK WHEN condition",
+            "EXIT WHEN condition",
+            "STOP IF condition",
+            "TERMINATE ON condition"
+        ],
+        answer: 1,
+        explanation: "EXIT WHEN condition immediately terminates the loop when the condition evaluates to true. You can also use EXIT without WHEN inside an IF statement."
+    },
 
-            },
+    // Cursors (15 questions)
+    {
+        question: "What is a cursor in PL/SQL?",
+        options: [
+            "A pointer to a database table",
+            "A memory area for storing SQL statement processing information",
+            "A type of PL/SQL record",
+            "A database trigger"
+        ],
+        answer: 1,
+        explanation: "A cursor is a private memory area allocated by Oracle to store information about processing a specific SQL statement, including the result set and current position in it."
+    },
+    {
+        question: "When does Oracle automatically create an implicit cursor?",
+        options: [
+            "Only for SELECT statements",
+            "Only for DML statements",
+            "For all SQL statements except DDL",
+            "For all SQL statements in PL/SQL"
+        ],
+        answer: 3,
+        explanation: "Oracle creates an implicit cursor for every SQL statement executed in PL/SQL, including SELECT, INSERT, UPDATE, DELETE, and MERGE statements."
+    },
+    {
+        question: "Which cursor attribute would you check to determine if the most recent FETCH returned a row?",
+        options: [
+            "%ISOPEN",
+            "%NOTFOUND",
+            "%ROWCOUNT",
+            "%FOUND"
+        ],
+        answer: 3,
+        explanation: "%FOUND returns TRUE if the most recent FETCH returned a row. %NOTFOUND returns the opposite (TRUE if no row was fetched)."
+    },
+    {
+        question: "What value does %ISOPEN return for an implicit cursor?",
+        options: [
+            "TRUE",
+            "FALSE",
+            "NULL",
+            "Depends on the cursor state"
+        ],
+        answer: 1,
+        explanation: "For implicit cursors, %ISOPEN always returns FALSE because Oracle opens and closes implicit cursors automatically."
+    },
+    {
+        question: "When would you need to use an explicit cursor?",
+        options: [
+            "For any SQL statement in PL/SQL",
+            "For DML statements that affect multiple rows",
+            "For SELECT statements that return more than one row",
+            "For transaction control statements"
+        ],
+        answer: 2,
+        explanation: "Explicit cursors are needed for SELECT statements that return multiple rows, allowing you to process one row at a time."
+    },
+    {
+        question: "What is the first step in using an explicit cursor?",
+        options: [
+            "OPEN the cursor",
+            "FETCH from the cursor",
+            "DECLARE the cursor",
+            "CLOSE the cursor"
+        ],
+        answer: 2,
+        explanation: "The steps are: 1) DECLARE the cursor with a SELECT statement, 2) OPEN it, 3) FETCH rows, and 4) CLOSE it when done."
+    },
+    {
+        question: "Which clause should NOT appear in the declaration of an explicit cursor?",
+        options: [
+            "SELECT",
+            "FROM",
+            "INTO",
+            "WHERE"
+        ],
+        answer: 2,
+        explanation: "The INTO clause appears in the FETCH statement for explicit cursors, not in the cursor declaration. The declaration includes SELECT, FROM, WHERE, etc."
+    },
+    {
+        question: "What happens if you try to FETCH from a cursor that has reached the end of its active set?",
+        options: [
+            "An error occurs",
+            "The first row is fetched again",
+            "NULL values are returned",
+            "The %NOTFOUND attribute becomes TRUE"
+        ],
+        answer: 3,
+        explanation: "When FETCH reaches the end of the active set, no row is returned and %NOTFOUND becomes TRUE. No error occurs."
+    },
+    {
+        question: "Which statement makes a cursor's active set available for fetching?",
+        options: [
+            "DECLARE",
+            "OPEN",
+            "FETCH",
+            "EXECUTE"
+        ],
+        answer: 1,
+        explanation: "The OPEN statement executes the cursor's query and identifies the active set (the rows that meet the query conditions)."
+    },
+    {
+        question: "What is the purpose of the %ROWCOUNT cursor attribute?",
+        options: [
+            "To limit the number of rows returned",
+            "To count the total rows in a table",
+            "To track the number of rows fetched so far",
+            "To check if any rows were affected"
+        ],
+        answer: 2,
+        explanation: "%ROWCOUNT returns the number of rows fetched so far from an explicit cursor or affected by a DML operation for implicit cursors."
+    },
+    {
+        question: "Which of the following is a best practice for cursor handling?",
+        options: [
+            "Never close cursors to improve performance",
+            "Use implicit cursors for multi-row queries",
+            "Close cursors when finished to free resources",
+            "Declare cursors inside loops"
+        ],
+        answer: 2,
+        explanation: "Always close cursors when done to free system resources. Other options are bad practices: always close cursors, use explicit for multi-row, and declare outside loops."
+    },
+    {
+        question: "What is the advantage of a parameterized cursor?",
+        options: [
+            "It can return multiple result sets",
+            "It can accept values when opened to filter results",
+            "It automatically closes itself",
+            "It doesn't need to be declared"
+        ],
+        answer: 1,
+        explanation: "Parameterized cursors accept values when opened, allowing you to customize the query results without redeclaring the cursor."
+    },
+    {
+        question: "How do you declare a cursor parameter?",
+        options: [
+            "In the DECLARE section before the cursor",
+            "After the CURSOR keyword in parentheses",
+            "In the OPEN statement",
+            "As a PL/SQL variable with the same name"
+        ],
+        answer: 1,
+        explanation: "Cursor parameters are declared in parentheses immediately after the cursor name in the CURSOR declaration, similar to procedure parameters."
+    },
+    {
+        question: "Which cursor type is most efficient for large result sets?",
+        options: [
+            "Implicit cursor with SELECT...INTO",
+            "Explicit cursor with a loop",
+            "Cursor FOR loop",
+            "Parameterized cursor"
+        ],
+        answer: 2,
+        explanation: "The cursor FOR loop is generally most efficient for large result sets because Oracle handles opening, fetching, and closing automatically with optimized performance."
+    },
+    {
+        question: "What does a cursor FOR loop automatically do that a regular explicit cursor doesn't?",
+        options: [
+            "Declare the cursor",
+            "Open, fetch, and close the cursor",
+            "Handle exceptions",
+            "Process multiple result sets"
+        ],
+        answer: 1,
+        explanation: "The cursor FOR loop automatically handles opening the cursor, fetching each row, and closing the cursor when done, reducing boilerplate code."
+    },
 
-            // Cursors (10 questions)
-            {
-                category: "Cursors",
-                question: "Which cursor attribute would you use to check if a FETCH operation returned a row?",
-                options: [
-                    "%ISOPEN",
-                    "%NOTFOUND",
-                    "%ROWCOUNT",
-                    "%FOUND"
-                ],
-                answer: 3,
-                explanation: "%FOUND returns TRUE if the most recent FETCH returned a row. %NOTFOUND is the opposite (TRUE if no row was returned). %ISOPEN checks if the cursor is open, and %ROWCOUNT gives the number of rows fetched so far."
-            },
-            {
-                category: "Cursors",
-                question: "What is the implicit cursor in PL/SQL called?",
-                options: [
-                    "IMPLICIT",
-                    "CUR",
-                    "SQL",
-                    "DEFAULT"
-                ],
-                answer: 2,
-                explanation: "Oracle automatically creates an implicit cursor named SQL for all DML statements and SELECT statements that return a single row."
-            },
-            {
-                category: "Cursors",
-                question: "Which of the following is NOT a step in using an explicit cursor?",
-                options: [
-                    "DECLARE",
-                    "OPEN",
-                    "FETCH",
-                    "EXECUTE"
-                ],
-                answer: 3,
-                explanation: "The four steps for explicit cursors are: 1) DECLARE the cursor, 2) OPEN it, 3) FETCH rows from it, and 4) CLOSE it. There is no EXECUTE step."
-            },
-            {
-                category: "Cursors",
-                question: "What does the %ROWCOUNT cursor attribute return?",
-                options: [
-                    "The total number of rows in the table",
-                    "The number of rows processed by the cursor so far",
-                    "The maximum number of rows the cursor can hold",
-                    "The number of rows that match the cursor's query"
-                ],
-                answer: 1,
-                explanation: "%ROWCOUNT returns the number of rows fetched so far for an explicit cursor or the number of rows affected by the most recent SQL statement for the implicit cursor."
-            },
-            {
-                category: "Cursors",
-                question: "When is memory allocated for a cursor?",
-                options: [
-                    "When the cursor is declared",
-                    "When the cursor is opened",
-                    "When the first FETCH is executed",
-                    "When the PL/SQL block begins execution"
-                ],
-                answer: 1,
-                explanation: "Memory for a cursor is allocated when the cursor is opened, not when it's declared. The OPEN statement executes the query and identifies the active set of rows."
-            },
-            {
-                category: "Cursors",
-                question: "What happens if you try to FETCH from a cursor that is not open?",
-                options: [
-                    "The FETCH operation returns NULL values",
-                    "An INVALID_CURSOR exception is raised",
-                    "The cursor automatically opens itself",
-                    "The program crashes with a runtime error"
-                ],
-                answer: 1,
-                explanation: "Attempting to FETCH from a cursor that isn't open raises the INVALID_CURSOR exception (ORA-01001)."
-            },
-            {
-                category: "Cursors",
-                question: "Which cursor attribute would you check to determine if all rows have been fetched?",
-                options: [
-                    "%ISOPEN",
-                    "%NOTFOUND",
-                    "%FOUND",
-                    "%ROWCOUNT"
-                ],
-                answer: 1,
-                explanation: "%NOTFOUND returns TRUE when the most recent FETCH didn't return a row, indicating you've reached the end of the active set."
-            },
-            {
-                category: "Cursors",
-                question: "What is the advantage of using a parameterized cursor?",
-                options: [
-                    "It can return multiple rows",
-                    "It can accept different values each time it's opened",
-                    "It doesn't need to be explicitly closed",
-                    "It executes faster than regular cursors"
-                ],
-                answer: 1,
-                explanation: "Parameterized cursors can accept different parameter values each time they're opened, allowing you to reuse the same cursor for different queries."
-            },
-            {
-                category: "Cursors",
-                question: "Which of the following is true about implicit cursors?",
-                options: [
-                    "They must be declared explicitly",
-                    "They can process multiple rows",
-                    "They are managed entirely by Oracle",
-                    "They must be explicitly closed"
-                ],
-                answer: 2,
-                explanation: "Implicit cursors are automatically created by Oracle for SQL statements and are entirely managed by Oracle. You don't declare, open, fetch from, or close them."
-            },
-            {
-                category: "Cursors",
-                question: "What is the purpose of the WHERE CURRENT OF clause in an UPDATE or DELETE statement?",
-                options: [
-                    "To reference the current row in a cursor FOR loop",
-                    "To update or delete the row most recently fetched by a cursor",
-                    "To specify the current date in a condition",
-                    "To limit the operation to rows in the current transaction"
-                ],
-                answer: 1,
-                explanation: "The WHERE CURRENT OF clause in an UPDATE or DELETE statement references the row most recently fetched by an explicit cursor, allowing you to modify that specific row."
+    // Procedures and Functions (15 questions)
+    {
+        question: "What is a stored procedure in PL/SQL?",
+        options: [
+            "A named PL/SQL block that performs an action",
+            "A SQL statement that creates tables",
+            "A database trigger",
+            "A cursor declaration"
+        ],
+        answer: 0,
+        explanation: "A stored procedure is a named PL/SQL block that performs one or more actions, can accept parameters, and is stored in the database."
+    },
+    {
+        question: "Which data dictionary view contains information about stored procedures?",
+        options: [
+            "USER_TABLES",
+            "USER_VIEWS",
+            "USER_OBJECTS",
+            "USER_INDEXES"
+        ],
+        answer: 2,
+        explanation: "USER_OBJECTS contains information about all schema objects including procedures, functions, packages, and triggers."
+    },
+    {
+        question: "What is the default parameter mode if none is specified?",
+        options: [
+            "IN",
+            "OUT",
+            "IN OUT",
+            "VARIADIC"
+        ],
+        answer: 0,
+        explanation: "If no mode is specified, parameters default to IN mode, meaning they can be read but not modified by the procedure."
+    },
+    {
+        question: "Which statement creates or replaces a procedure named CALC_BONUS?",
+        options: [
+            "CREATE PROCEDURE CALC_BONUS...",
+            "CREATE OR REPLACE PROCEDURE CALC_BONUS...",
+            "ALTER PROCEDURE CALC_BONUS...",
+            "DEFINE PROCEDURE CALC_BONUS..."
+        ],
+        answer: 1,
+        explanation: "CREATE OR REPLACE PROCEDURE is the correct syntax to create a new procedure or replace an existing one with the same name."
+    },
+    {
+        question: "What is a key difference between procedures and functions?",
+        options: [
+            "Procedures can't have parameters",
+            "Functions must return a value",
+            "Procedures are stored in memory only",
+            "Functions can't be called from SQL"
+        ],
+        answer: 1,
+        explanation: "The key difference is that functions must return exactly one value using a RETURN statement, while procedures perform actions without necessarily returning values."
+    },
+    {
+        question: "Which parameter mode allows a subprogram to pass a value back to the caller?",
+        options: [
+            "IN",
+            "OUT",
+            "IN OUT",
+            "RETURN"
+        ],
+        answer: 1,
+        explanation: "OUT parameters are used to pass values back to the caller. IN parameters pass values in, and IN OUT does both."
+    },
+    {
+        question: "Where is the RETURN statement required?",
+        options: [
+            "In all procedures",
+            "In all functions",
+            "In all packages",
+            "In all triggers"
+        ],
+        answer: 1,
+        explanation: "Functions must have at least one RETURN statement to return a value. Procedures may have RETURN statements but they're optional and don't return values."
+    },
+    {
+        question: "Which of these is NOT a valid way to call a procedure?",
+        options: [
+            "EXECUTE procedure_name;",
+            "procedure_name();",
+            "CALL procedure_name();",
+            "SELECT procedure_name FROM dual;"
+        ],
+        answer: 3,
+        explanation: "Procedures can't be called from SELECT statements. They're called with EXECUTE, CALL, or directly in PL/SQL blocks."
+    },
+    {
+        question: "What is the advantage of using %TYPE for parameters?",
+        options: [
+            "Improves performance",
+            "Automatically adapts to column type changes",
+            "Allows NULL values",
+            "Makes parameters optional"
+        ],
+        answer: 1,
+        explanation: "Using %TYPE for parameters links them to database column types, so if the column definition changes, the procedure automatically adapts."
+    },
+    {
+        question: "Which statement about function purity levels is correct?",
+        options: [
+            "Functions called from SQL must be WNDS",
+            "All functions are automatically pure",
+            "Purity levels don't affect SQL calls",
+            "Only package functions have purity levels"
+        ],
+        answer: 0,
+        explanation: "Functions called from SQL statements must at least be WNDS (Writes No Database State) meaning they don't modify database tables."
+    },
+    {
+        question: "What is a benefit of using packages?",
+        options: [
+            "Reduced memory usage",
+            "Better organization of related code",
+            "Faster execution",
+            "Automatic transaction control"
+        ],
+        answer: 1,
+        explanation: "Packages primarily help organize related procedures, functions, variables, etc. into logical units, improving code maintainability."
+    },
+    {
+        question: "Which component declares public package elements?",
+        options: [
+            "Package body only",
+            "Package specification",
+            "Both specification and body",
+            "Package header"
+        ],
+        answer: 1,
+        explanation: "The package specification declares public elements (visible to users of the package). The body contains implementation and private elements."
+    },
+    {
+        question: "What happens if you modify a package specification?",
+        options: [
+            "Only the specification needs recompilation",
+            "The body automatically recompiles",
+            "Both specification and body are invalidated",
+            "Nothing changes until you recompile both"
+        ],
+        answer: 2,
+        explanation: "Changing the package specification invalidates the body because the body must conform to the specification."
+    },
+    {
+        question: "Which statement removes a package body without removing the specification?",
+        options: [
+            "DROP PACKAGE package_name;",
+            "DROP PACKAGE BODY package_name;",
+            "DELETE PACKAGE BODY package_name;",
+            "REMOVE PACKAGE BODY package_name;"
+        ],
+        answer: 1,
+        explanation: "DROP PACKAGE BODY removes just the body, leaving the specification intact. DROP PACKAGE removes both."
+    },
+    {
+        question: "What is a package initialization section?",
+        options: [
+            "A required part of every package",
+            "Code that runs when the package is first referenced",
+            "A declaration of package constants",
+            "The first procedure in a package"
+        ],
+        answer: 1,
+        explanation: "The initialization section (after BEGIN in the package body) runs once when the package is first referenced in a session, typically for setup tasks."
+    },
 
-            },
+    // Triggers (15 questions)
+    {
+        question: "What is a database trigger?",
+        options: [
+            "A stored procedure that runs on demand",
+            "A PL/SQL block that executes automatically when an event occurs",
+            "A SQL statement that creates tables",
+            "A type of cursor"
+        ],
+        answer: 1,
+        explanation: "A trigger is a PL/SQL block that automatically executes (fires) when a specified database event occurs (DML, DDL, or system event)."
+    },
+    {
+        question: "Which timing fires a trigger before the triggering statement executes?",
+        options: [
+            "BEFORE",
+            "AFTER",
+            "INSTEAD OF",
+            "PRIOR"
+        ],
+        answer: 0,
+        explanation: "BEFORE triggers fire before the triggering statement executes, allowing you to modify values or prevent operations."
+    },
+    {
+        question: "What is the difference between row-level and statement-level triggers?",
+        options: [
+            "Row-level triggers fire once per statement",
+            "Statement-level triggers fire once per affected row",
+            "Row-level triggers fire once per affected row",
+            "There is no difference"
+        ],
+        answer: 2,
+        explanation: "Row-level triggers fire once for each row affected by the triggering statement. Statement-level triggers fire once per statement regardless of rows affected."
+    },
+    {
+        question: "Which pseudorecord allows row-level triggers to access new column values?",
+        options: [
+            ":OLD",
+            ":NEW",
+            ":CURRENT",
+            ":CHANGED"
+        ],
+        answer: 1,
+        explanation: ":NEW is a pseudorecord that contains the new column values for INSERT or UPDATE operations in row-level triggers."
+    },
+    {
+        question: "What can INSTEAD OF triggers be used for?",
+        options: [
+            "Tables only",
+            "Views only",
+            "Both tables and views",
+            "Packages"
+        ],
+        answer: 1,
+        explanation: "INSTEAD OF triggers are specifically for views, allowing modifications to views that would otherwise be non-updatable."
+    },
+    {
+        question: "Which event can trigger a database event trigger?",
+        options: [
+            "User login",
+            "Table update",
+            "Procedure execution",
+            "Package compilation"
+        ],
+        answer: 0,
+        explanation: "Database event triggers fire on system events like user login (LOGON), logout (LOGOFF), startup (STARTUP), or shutdown (SHUTDOWN)."
+    },
+    {
+        question: "What is the purpose of the FOLLOWS clause in trigger creation?",
+        options: [
+            "To specify trigger execution order",
+            "To create dependent triggers",
+            "To chain trigger execution",
+            "To improve performance"
+        ],
+        answer: 0,
+        explanation: "FOLLOWS specifies that a trigger should fire after another trigger of the same type (BEFORE/AFTER) on the same table, controlling execution order."
+    },
+    {
+        question: "Which statement creates a trigger that fires after updates to the SALARY column?",
+        options: [
+            "CREATE TRIGGER trg1 AFTER UPDATE ON employees",
+            "CREATE TRIGGER trg1 AFTER UPDATE OF salary ON employees",
+            "CREATE TRIGGER trg1 ON employees AFTER salary UPDATE",
+            "CREATE TRIGGER trg1 FOR UPDATE OF salary ON employees"
+        ],
+        answer: 1,
+        explanation: "The correct syntax is CREATE TRIGGER...AFTER UPDATE OF column ON table to fire only when a specific column is updated."
+    },
+    {
+        question: "What is a mutating table error?",
+        options: [
+            "When a trigger modifies its base table",
+            "When a table is being altered",
+            "When a table is locked",
+            "When a table doesn't exist"
+        ],
+        answer: 0,
+        explanation: "A mutating table error occurs when a trigger tries to query or modify the table that fired the trigger, creating a consistency problem."
+    },
+    {
+        question: "How can you avoid mutating table errors?",
+        options: [
+            "Use statement-level triggers",
+            "Use compound triggers",
+            "Disable the trigger",
+            "Both 1 and 2"
+        ],
+        answer: 3,
+        explanation: "Mutating table errors can be avoided by using statement-level triggers (which don't see row changes) or compound triggers (which have separate timing points)."
+    },
+    {
+        question: "What is a compound trigger?",
+        options: [
+            "A trigger with multiple events",
+            "A trigger that combines multiple timing points",
+            "A package of triggers",
+            "A trigger with multiple actions"
+        ],
+        answer: 1,
+        explanation: "A compound trigger combines multiple timing points (BEFORE/AFTER statement/row) in a single trigger, sharing state across timing points."
+    },
+    {
+        question: "Which timing point in a compound trigger executes once per row before the row operation?",
+        options: [
+            "BEFORE STATEMENT",
+            "AFTER STATEMENT",
+            "BEFORE EACH ROW",
+            "AFTER EACH ROW"
+        ],
+        answer: 2,
+        explanation: "BEFORE EACH ROW executes once for each affected row before the row operation occurs."
+    },
+    {
+        question: "What is the purpose of the WHEN clause in trigger creation?",
+        options: [
+            "To specify trigger timing",
+            "To conditionally execute the trigger",
+            "To define trigger order",
+            "To specify trigger dependencies"
+        ],
+        answer: 1,
+        explanation: "The WHEN clause allows you to specify a condition that must be true for the trigger to fire, providing conditional execution."
+    },
+    {
+        question: "Which privilege is needed to create a trigger on another user's table?",
+        options: [
+            "CREATE TRIGGER",
+            "ALTER on the table",
+            "CREATE ANY TRIGGER",
+            "ADMIN option"
+        ],
+        answer: 2,
+        explanation: "CREATE ANY TRIGGER privilege is needed to create triggers on tables in another user's schema."
+    },
+    {
+        question: "How can you temporarily disable a trigger?",
+        options: [
+            "ALTER TRIGGER trigger_name DISABLE",
+            "DROP TRIGGER trigger_name",
+            "REMOVE TRIGGER trigger_name",
+            "DELETE TRIGGER trigger_name"
+        ],
+        answer: 0,
+        explanation: "ALTER TRIGGER trigger_name DISABLE temporarily disables a trigger without dropping it. Use ENABLE to re-enable it."
+    },
 
-            // Procedures and Functions (10 questions)
-            {
-                category: "Procedures and Functions",
-                question: "What is the main difference between a procedure and a function in PL/SQL?",
-                options: [
-                    "Procedures can't have parameters while functions can",
-                    "Functions must return exactly one value while procedures don't need to return anything",
-                    "Procedures are stored in the database while functions are not",
-                    "Functions can only be called from SQL statements"
-                ],
-                answer: 1,
-                explanation: "The key difference is that functions must return exactly one value using a RETURN statement, while procedures perform actions without necessarily returning values (though they can have OUT parameters)."
-            },
-            {
-                category: "Procedures and Functions",
-                question: "Which parameter mode is the default if none is specified?",
-                options: [
-                    "IN",
-                    "OUT",
-                    "IN OUT",
-                    "There is no default mode"
-                ],
-                answer: 0,
-                explanation: "If no parameter mode is specified, the default is IN, meaning the parameter is for input only and cannot be modified by the subprogram."
-            },
-            {
-                category: "Procedures and Functions",
-                question: "Which of the following is NOT allowed in a function called from a SQL statement?",
-                options: [
-                    "SELECT statements",
-                    "DML operations (INSERT, UPDATE, DELETE)",
-                    "Using the RETURN statement",
-                    "Declaring local variables"
-                ],
-                answer: 1,
-                explanation: "Functions called from SQL statements must not perform DML operations, issue COMMIT or ROLLBACK statements, or modify package variables."
-            },
-            {
-                category: "Procedures and Functions",
-                question: "What is the purpose of the OR REPLACE option when creating a procedure?",
-                options: [
-                    "To automatically replace any existing procedure with the same name",
-                    "To create a backup copy of the existing procedure",
-                    "To mark the procedure as replaceable by other users",
-                    "To allow the procedure to be called recursively"
-                ],
-                answer: 0,
-                explanation: "OR REPLACE allows you to modify an existing procedure without having to first drop it. If the procedure exists, it's replaced; if not, it's created."
-            },
-            {
-                category: "Procedures and Functions",
-                question: "Which data dictionary view contains the source code of stored procedures?",
-                options: [
-                    "USER_OBJECTS",
-                    "USER_SOURCE",
-                    "USER_PROCEDURES",
-                    "USER_CODE"
-                ],
-                answer: 1,
-                explanation: "USER_SOURCE contains the source code of stored procedures, functions, and packages. USER_OBJECTS lists the objects but not their source, and USER_PROCEDURES contains additional information about procedures."
-            },
-            {
-                category: "Procedures and Functions",
-                question: "What happens if a function doesn't execute a RETURN statement?",
-                options: [
-                    "It returns NULL by default",
-                    "A compile-time error occurs",
-                    "A runtime error occurs when the function is called",
-                    "The function executes but cannot be used in SQL statements"
-                ],
-                answer: 2,
-                explanation: "If a function completes without executing a RETURN statement, PL/SQL raises the predefined exception PROGRAM_ERROR at runtime."
-            },
-            {
-                category: "Procedures and Functions",
-                question: "Which of the following is true about OUT parameters?",
-                options: [
-                    "They can only be used in functions",
-                    "They return values to the calling program",
-                    "They cannot be assigned values within the subprogram",
-                    "They must have a default value"
-                ],
-                answer: 1,
-                explanation: "OUT parameters are used to return values to the calling program. They can be used in both procedures and functions (though functions should primarily use RETURN)."
-            },
-            {
-                category: "Procedures and Functions",
-                question: "What is the advantage of using %TYPE for procedure parameters?",
-                options: [
-                    "It makes the procedure run faster",
-                    "It automatically adjusts if the database column definition changes",
-                    "It allows the parameter to accept multiple data types",
-                    "It makes the procedure more secure"
-                ],
-                answer: 1,
-                explanation: "Using %TYPE for parameters links them to database columns, so if the column definition changes, the procedure automatically adjusts without needing modification."
-            },
-            {
-                category: "Procedures and Functions",
-                question: "Which statement is used to remove a stored procedure from the database?",
-                options: [
-                    "DELETE PROCEDURE",
-                    "DROP PROCEDURE",
-                    "REMOVE PROCEDURE",
-                    "ALTER PROCEDURE...DISABLE"
-                ],
-                answer: 1,
-                explanation: "The DROP PROCEDURE statement removes a stored procedure from the database. Similar syntax is used for functions: DROP FUNCTION."
-            },
-            {
-                category: "Procedures and Functions",
-                question: "What is a benefit of using procedures and functions in PL/SQL?",
-                options: [
-                    "They reduce network traffic by executing on the server",
-                    "They automatically optimize SQL statements",
-                    "They eliminate the need for exception handling",
-                    "They allow direct execution of DDL statements"
-                ],
-                answer: 0,
-                explanation: "Stored subprograms execute on the server, reducing network traffic compared to sending multiple SQL statements from a client. They also promote code reuse and modularity."
-
-            },
-
-            // Packages and Triggers (10 questions)
-            {
-                category: "Packages and Triggers",
-                question: "Which component of a package contains the executable code?",
-                options: [
-                    "Package specification",
-                    "Package body",
-                    "Both specification and body",
-                    "Package header"
-                ],
-                answer: 1,
-                explanation: "The package specification declares the public interface (what's accessible to other programs), while the package body contains the implementation (executable code) of the procedures and functions."
-            },
-            {
-                category: "Packages and Triggers",
-                question: "What is the primary purpose of a package in PL/SQL?",
-                options: [
-                    "To group related program objects together",
-                    "To make programs run faster",
-                    "To provide transaction control",
-                    "To handle exceptions globally"
-                ],
-                answer: 0,
-                explanation: "Packages are used to group related procedures, functions, variables, cursors, and exceptions together as a logical unit, promoting modularity and code organization."
-            },
-            {
-                category: "Packages and Triggers",
-                question: "Which of the following can be included in a package specification?",
-                options: [
-                    "Variable declarations",
-                    "Procedure implementations",
-                    "Private function declarations",
-                    "Local cursor definitions"
-                ],
-                answer: 0,
-                explanation: "The package specification can include declarations of variables, constants, cursors, exceptions, and subprograms (just the headers, not implementations)."
-            },
-            {
-                category: "Packages and Triggers",
-                question: "What happens if you drop a package specification?",
-                options: [
-                    "Only the specification is dropped",
-                    "Both the specification and body are dropped",
-                    "The body becomes invalid but remains",
-                    "You cannot drop a specification without first dropping the body"
-                ],
-                answer: 1,
-                explanation: "Dropping a package specification automatically drops the package body as well, since the body cannot exist without its specification."
-            },
-            {
-                category: "Packages and Triggers",
-                question: "Which type of trigger fires once for each row affected by a DML statement?",
-                options: [
-                    "Statement-level trigger",
-                    "Row-level trigger",
-                    "BEFORE trigger",
-                    "INSTEAD OF trigger"
-                ],
-                answer: 1,
-                explanation: "Row-level triggers fire once for each row affected by the DML statement. Statement-level triggers fire once for the entire statement regardless of how many rows are affected."
-            },
-            {
-                category: "Packages and Triggers",
-                question: "When does a BEFORE trigger execute?",
-                options: [
-                    "Before the triggering statement is parsed",
-                    "Before the triggering statement executes",
-                    "Before the database starts up",
-                    "Before any other triggers on the same event"
-                ],
-                answer: 1,
-                explanation: "A BEFORE trigger executes before the triggering statement executes, allowing you to modify values or prevent the operation if needed."
-            },
-            {
-                category: "Packages and Triggers",
-                question: "What is the purpose of an INSTEAD OF trigger?",
-                options: [
-                    "To replace the triggering statement with different operations",
-                    "To execute additional operations after the triggering statement",
-                    "To prevent the triggering statement from executing",
-                    "To log the triggering statement for auditing"
-                ],
-                answer: 0,
-                explanation: "INSTEAD OF triggers are primarily used with views to replace the triggering DML operation (which might not work directly on the view) with operations that modify the underlying tables."
-            },
-            {
-                category: "Packages and Triggers",
-                question: "Which of the following events can trigger a database trigger?",
-                options: [
-                    "User login (LOGON)",
-                    "Database shutdown (SHUTDOWN)",
-                    "Server errors (SERVERERROR)",
-                    "All of the above"
-                ],
-                answer: 3,
-                explanation: "Database triggers can fire on DML events (INSERT, UPDATE, DELETE), DDL events (CREATE, ALTER, DROP), and system events like LOGON, SHUTDOWN, and SERVERERROR."
-            },
-            {
-                category: "Packages and Triggers",
-                question: "What is the difference between a trigger and a stored procedure?",
-                options: [
-                    "Triggers cannot contain PL/SQL code",
-                    "Triggers execute automatically in response to events",
-                    "Stored procedures cannot be called directly",
-                    "There is no difference"
-                ],
-                answer: 1,
-                explanation: "Triggers execute automatically when their triggering event occurs, while stored procedures must be explicitly called by another program or user."
-            },
-            {
-                category: "Packages and Triggers",
-                question: "Which pseudorecords are available in row-level triggers?",
-                options: [
-                    ":NEW and :OLD",
-                    ":BEFORE and :AFTER",
-                    ":INSERT, :UPDATE, and :DELETE",
-                    ":CHANGED and :ORIGINAL"
-                ],
-                answer: 0,
-                explanation: "In row-level triggers, :NEW contains the new values for the row (for INSERT and UPDATE), and :OLD contains the old values (for UPDATE and DELETE)."
-
-            },
-
-            // Data Warehousing (10 questions)
-            {
-                category: "Data Warehousing",
-                question: "What is the primary purpose of a data warehouse?",
-                options: [
-                    "To process real-time transactions",
-                    "To store only current data for operational systems",
-                    "To support business intelligence and analytics",
-                    "To replace operational databases"
-                ],
-                answer: 2,
-                explanation: "Data warehouses are designed for business intelligence and analytics, containing historical data from multiple sources. Operational databases handle real-time transaction processing."
-            },
-            {
-                category: "Data Warehousing",
-                question: "Which of the following is NOT a characteristic of a data warehouse?",
-                options: [
-                    "Subject-oriented",
-                    "Volatile",
-                    "Integrated",
-                    "Time-variant"
-                ],
-                answer: 1,
-                explanation: "The key characteristics of a data warehouse are: Subject-oriented, Integrated, Non-volatile (not changing frequently), and Time-variant (maintaining historical data)."
-            },
-            {
-                category: "Data Warehousing",
-                question: "What is the main difference between a data warehouse and an operational database?",
-                options: [
-                    "Data warehouses are smaller",
-                    "Operational databases are optimized for read access",
-                    "Data warehouses contain historical data",
-                    "Operational databases don't use SQL"
-                ],
-                answer: 2,
-                explanation: "The primary difference is that data warehouses maintain historical data for analysis, while operational databases focus on current data for day-to-day transactions."
-            },
-            {
-                category: "Data Warehousing",
-                question: "Which component of data warehouse architecture is responsible for extracting and loading data?",
-                options: [
-                    "Query Manager",
-                    "Warehouse Manager",
-                    "Load Manager",
-                    "OLAP Server"
-                ],
-                answer: 2,
-                explanation: "The Load Manager (or front-end component) performs all operations associated with extraction and loading of data into the warehouse, including transformations."
-            },
-            {
-                category: "Data Warehousing",
-                question: "What is a data mart?",
-                options: [
-                    "A small, specialized data warehouse for a specific department",
-                    "A backup copy of the data warehouse",
-                    "A temporary storage area for ETL processing",
-                    "A metadata repository"
-                ],
-                answer: 0,
-                explanation: "A data mart is a subset of a data warehouse focused on a particular subject area or department (like sales or finance), providing easier access to relevant data."
-            },
-            {
-                category: "Data Warehousing",
-                question: "Which type of data mart is created without using a central data warehouse?",
-                options: [
-                    "Dependent data mart",
-                    "Independent data mart",
-                    "Hybrid data mart",
-                    "Relational data mart"
-                ],
-                answer: 1,
-                explanation: "An independent data mart is created directly from operational systems without a central data warehouse, while dependent data marts get their data from a warehouse."
-            },
-            {
-                category: "Data Warehousing",
-                question: "What is the purpose of the staging area in a data warehouse?",
-                options: [
-                    "To present data to end users",
-                    "To clean and process data before loading",
-                    "To store metadata definitions",
-                    "To archive old data"
-                ],
-                answer: 1,
-                explanation: "The staging area is used to clean, transform, and prepare data from source systems before loading it into the data warehouse."
-            },
-            {
-                category: "Data Warehousing",
-                question: "Which of the following is NOT a tier in the three-tier data warehouse architecture?",
-                options: [
-                    "Bottom Tier (Data Warehouse Server)",
-                    "Middle Tier (OLAP Server)",
-                    "Top Tier (Client Tools)",
-                    "ETL Tier (Transformation Engine)"
-                ],
-                answer: 3,
-                explanation: "The three tiers are: 1) Bottom Tier (data warehouse server), 2) Middle Tier (OLAP server), and 3) Top Tier (client tools). ETL is part of the loading process, not a separate tier."
-            },
-            {
-                category: "Data Warehousing",
-                question: "What is the primary purpose of an Operational Data Store (ODS)?",
-                options: [
-                    "To support long-term trend analysis",
-                    "To provide real-time or near-real-time data for operational reporting",
-                    "To replace the data warehouse",
-                    "To store metadata definitions"
-                ],
-                answer: 1,
-                explanation: "An ODS provides current or near-real-time integrated data from operational systems for operational reporting, positioned between operational databases and the data warehouse."
-            },
-            {
-                category: "Data Warehousing",
-                question: "Which data warehouse schema is named for its star-like structure with a central fact table?",
-                options: [
-                    "Snowflake schema",
-                    "Star schema",
-                    "Galaxy schema",
-                    "Normalized schema"
-                ],
-                answer: 1,
-                explanation: "The star schema has a central fact table connected to dimension tables, resembling a star. Snowflake schema normalizes the dimensions, and galaxy schema has multiple fact tables."
-
-            },
-
-            // OLAP and Data Mining (10 questions)
-            {
-                category: "OLAP and Data Mining",
-                question: "What does OLAP stand for?",
-                options: [
-                    "Online Analytical Processing",
-                    "Object Linking and Processing",
-                    "Offline Analysis Procedure",
-                    "Operational Log Analysis Platform"
-                ],
-                answer: 0,
-                explanation: "OLAP stands for Online Analytical Processing, which enables users to analyze multidimensional data interactively from multiple perspectives."
-            },
-            {
-                category: "OLAP and Data Mining",
-                question: "Which OLAP operation involves viewing data at a more detailed level (e.g., from quarters to months)?",
-                options: [
-                    "Roll-up",
-                    "Drill-down",
-                    "Slice",
-                    "Dice"
-                ],
-                answer: 1,
-                explanation: "Drill-down navigates from higher-level summary data to lower-level detail data. Roll-up does the opposite, summarizing data to a higher level."
-            },
-            {
-                category: "OLAP and Data Mining",
-                question: "Which type of OLAP system uses a relational database for storage?",
-                options: [
-                    "MOLAP",
-                    "ROLAP",
-                    "HOLAP",
-                    "DOLAP"
-                ],
-                answer: 1,
-                explanation: "ROLAP (Relational OLAP) uses relational databases, while MOLAP uses multidimensional databases. HOLAP is a hybrid approach combining both."
-            },
-            {
-                category: "OLAP and Data Mining",
-                question: "What is an OLAP cube?",
-                options: [
-                    "A physical cube-shaped storage device",
-                    "A data structure that allows fast analysis across multiple dimensions",
-                    "A type of database trigger",
-                    "A visualization tool for 3D data"
-                ],
-                answer: 1,
-                explanation: "An OLAP cube is a multidimensional data structure that organizes data for fast analysis across multiple dimensions (like time, geography, product)."
-            },
-            {
-                category: "OLAP and Data Mining",
-                question: "Which OLAP operation extracts data for a single value of one dimension (e.g., sales in 2020)?",
-                options: [
-                    "Drill-down",
-                    "Slice",
-                    "Dice",
-                    "Pivot"
-                ],
-                answer: 1,
-                explanation: "Slice extracts data for a single value of one dimension, creating a subset of the cube. Dice extracts data for multiple dimension values."
-            },
-            {
-                category: "OLAP and Data Mining",
-                question: "What is the purpose of the ETL process in data warehousing?",
-                options: [
-                    "To present data to end users",
-                    "To extract, transform, and load data into the warehouse",
-                    "To optimize query performance",
-                    "To create OLAP cubes"
-                ],
-                answer: 1,
-                explanation: "ETL (Extract, Transform, Load) is the process of gathering data from source systems, cleaning and transforming it, and loading it into the data warehouse."
-            },
-            {
-                category: "OLAP and Data Mining",
-                question: "Which data mining technique groups similar data items together?",
-                options: [
-                    "Classification",
-                    "Cluster analysis",
-                    "Regression analysis",
-                    "Association rule learning"
-                ],
-                answer: 1,
-                explanation: "Cluster analysis groups similar data items into clusters based on their characteristics, without predefined classes (unsupervised learning)."
-            },
-            {
-                category: "OLAP and Data Mining",
-                question: "What is the first phase in the CRISP-DM data mining methodology?",
-                options: [
-                    "Data Understanding",
-                    "Business Understanding",
-                    "Data Preparation",
-                    "Modeling"
-                ],
-                answer: 1,
-                explanation: "CRISP-DM phases are: 1) Business Understanding, 2) Data Understanding, 3) Data Preparation, 4) Modeling, 5) Evaluation, and 6) Deployment."
-            },
-            {
-                category: "OLAP and Data Mining",
-                question: "Which algorithm is used for constructing decision trees in data mining?",
-                options: [
-                    "k-Means",
-                    "Apriori",
-                    "C4.5",
-                    "PageRank"
-                ],
-                answer: 2,
-                explanation: "C4.5 is an algorithm for generating decision trees. k-Means is for clustering, Apriori for association rules, and PageRank for link analysis."
-            },
-            {
-                category: "OLAP and Data Mining",
-                question: "What is the difference between predictive and descriptive data mining?",
-                options: [
-                    "Predictive looks forward, descriptive looks backward",
-                    "Descriptive is faster than predictive",
-                    "Predictive only works with numeric data",
-                    "There is no difference"
-                ],
-                answer: 0,
-                explanation: "Predictive data mining forecasts future trends and behaviors, while descriptive data mining identifies patterns and relationships in historical data."
-            }
-        ];
+    // Data Warehousing (20 questions)
+    {
+        question: "What is the primary purpose of a data warehouse?",
+        options: [
+            "To process real-time transactions",
+            "To support business decision-making through analysis",
+            "To replace operational databases",
+            "To store only current data"
+        ],
+        answer: 1,
+        explanation: "Data warehouses are designed for business intelligence and analysis, containing historical data from multiple sources to support decision-making."
+    },
+    {
+        question: "Which characteristic distinguishes a data warehouse from an operational database?",
+        options: [
+            "Data warehouses are optimized for read access",
+            "Operational databases store historical data",
+            "Data warehouses process transactions",
+            "Operational databases are denormalized"
+        ],
+        answer: 0,
+        explanation: "Data warehouses are optimized for complex queries and analysis (read access), while operational databases are optimized for transaction processing (write access)."
+    },
+    {
+        question: "What does the 'S' in ETL stand for?",
+        options: [
+            "Sort",
+            "Store",
+            "System",
+            "Staging"
+        ],
+        answer: 3,
+        explanation: "ETL stands for Extract, Transform, Load. The 'S' is not part of the acronym - this is a trick question to test attention to detail!"
+    },
+    {
+        question: "Which component of data warehouse architecture is responsible for extracting and loading data?",
+        options: [
+            "Warehouse Manager",
+            "Load Manager",
+            "Query Manager",
+            "OLAP Server"
+        ],
+        answer: 1,
+        explanation: "The Load Manager (or front-end component) handles extracting data from sources, transforming it, and loading it into the warehouse."
+    },
+    {
+        question: "What is a data mart?",
+        options: [
+            "A complete copy of the data warehouse",
+            "A subset of a data warehouse focused on a specific subject",
+            "A temporary storage area for ETL processing",
+            "An operational data store"
+        ],
+        answer: 1,
+        explanation: "A data mart is a specialized subset of a data warehouse, typically focused on a specific business area like sales or finance."
+    },
+    {
+        question: "Which type of data mart is created without using a central data warehouse?",
+        options: [
+            "Dependent",
+            "Independent",
+            "Hybrid",
+            "Relational"
+        ],
+        answer: 1,
+        explanation: "Independent data marts are created directly from operational systems without a central data warehouse, often leading to inconsistencies."
+    },
+    {
+        question: "What is the central table in a star schema called?",
+        options: [
+            "Dimension table",
+            "Fact table",
+            "Lookup table",
+            "Bridge table"
+        ],
+        answer: 1,
+        explanation: "The fact table is the central table in a star schema, containing measurable business facts and foreign keys to dimension tables."
+    },
+    {
+        question: "Which schema normalizes dimension tables into multiple related tables?",
+        options: [
+            "Star schema",
+            "Snowflake schema",
+            "Galaxy schema",
+            "Flat schema"
+        ],
+        answer: 1,
+        explanation: "The snowflake schema normalizes dimension tables into hierarchies of related tables, reducing redundancy but increasing query complexity."
+    },
+    {
+        question: "What is the main advantage of a star schema over a snowflake schema?",
+        options: [
+            "Better storage efficiency",
+            "Simpler queries",
+            "More normalized structure",
+            "Easier maintenance"
+        ],
+        answer: 1,
+        explanation: "Star schemas typically provide simpler, faster queries due to denormalized dimensions and fewer joins compared to snowflake schemas."
+    },
+    {
+        question: "Which OLAP operation summarizes data by climbing up a dimension hierarchy?",
+        options: [
+            "Drill-down",
+            "Slice",
+            "Roll-up",
+            "Dice"
+        ],
+        answer: 2,
+        explanation: "Roll-up (or drill-up) summarizes data by moving up a dimension hierarchy (e.g., from months to quarters to years)."
+    },
+    {
+        question: "What does ROLAP stand for?",
+        options: [
+            "Relational OLAP",
+            "Real-time OLAP",
+            "Read-only OLAP",
+            "Roll-up OLAP"
+        ],
+        answer: 0,
+        explanation: "ROLAP stands for Relational OLAP, which uses relational databases to store and analyze multidimensional data."
+    },
+    {
+        question: "Which OLAP system uses pre-calculated multidimensional cubes?",
+        options: [
+            "ROLAP",
+            "MOLAP",
+            "HOLAP",
+            "DOLAP"
+        ],
+        answer: 1,
+        explanation: "MOLAP (Multidimensional OLAP) stores data in optimized multidimensional cubes for fast analysis."
+    },
+    {
+        question: "What is the purpose of a staging area in ETL?",
+        options: [
+            "To permanently store historical data",
+            "To clean and transform data before loading",
+            "To serve end-user queries",
+            "To replace the data warehouse"
+        ],
+        answer: 1,
+        explanation: "The staging area is a temporary storage area where data is cleaned, transformed, and prepared before being loaded into the data warehouse."
+    },
+    {
+        question: "Which type of data extraction captures only changed data?",
+        options: [
+            "Full extraction",
+            "Partial extraction with update notification",
+            "Partial extraction without update notification",
+            "Complete refresh"
+        ],
+        answer: 1,
+        explanation: "Partial extraction with update notification captures only data that has changed since the last extraction, making it more efficient than full extracts."
+    },
+    {
+        question: "What is the first phase in the CRISP-DM data mining methodology?",
+        options: [
+            "Data Understanding",
+            "Business Understanding",
+            "Data Preparation",
+            "Modeling"
+        ],
+        answer: 1,
+        explanation: "CRISP-DM begins with Business Understanding to define project objectives and requirements before moving to data and technical work."
+    },
+    {
+        question: "Which data mining technique groups similar items together?",
+        options: [
+            "Classification",
+            "Regression",
+            "Clustering",
+            "Association"
+        ],
+        answer: 2,
+        explanation: "Clustering (or cluster analysis) groups similar items together based on their characteristics, without predefined categories."
+    },
+    {
+        question: "What does the Apriori algorithm discover?",
+        options: [
+            "Decision trees",
+            "Association rules",
+            "Neural networks",
+            "Regression models"
+        ],
+        answer: 1,
+        explanation: "Apriori is a classic algorithm for learning association rules (e.g., 'customers who buy X often buy Y') from transactional data."
+    },
+    {
+        question: "Which algorithm creates a hyperplane to separate data into classes?",
+        options: [
+            "k-Means",
+            "Apriori",
+            "SVM (Support Vector Machine)",
+            "PageRank"
+        ],
+        answer: 2,
+        explanation: "SVM (Support Vector Machine) creates an optimal hyperplane in high-dimensional space to separate data into classes."
+    },
+    {
+        question: "What is the k in k-Means clustering?",
+        options: [
+            "The number of dimensions",
+            "The number of clusters",
+            "The kernel function",
+            "The key attribute"
+        ],
+        answer: 1,
+        explanation: "In k-Means, k represents the number of clusters to create. The algorithm partitions observations into exactly k clusters."
+    },
+    {
+        question: "Which phase of CRISP-DM involves assessing model quality?",
+        options: [
+            "Data Preparation",
+            "Modeling",
+            "Evaluation",
+            "Deployment"
+        ],
+        answer: 2,
+        explanation: "The Evaluation phase assesses model quality and ensures it meets business objectives before deployment."
+    }
+];
 
         // Quiz state
         let currentQuestionIndex = 0;
