@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,12 +15,13 @@
             padding: 20px;
             background-color: #f5f7fa;
         }
-        
-        h1, h2 {
+
+        h1,
+        h2 {
             color: #2c3e50;
             text-align: center;
         }
-        
+
         .quiz-container {
             background-color: white;
             border-radius: 8px;
@@ -27,7 +29,7 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
-        
+
         .question {
             margin-bottom: 20px;
             padding: 15px;
@@ -35,11 +37,11 @@
             background-color: #f8f9fa;
             border-radius: 0 4px 4px 0;
         }
-        
+
         .options {
             margin-top: 10px;
         }
-        
+
         .option {
             margin: 8px 0;
             padding: 10px;
@@ -48,26 +50,26 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        
+
         .option:hover {
             background-color: #d4e6f1;
         }
-        
+
         .option.selected {
             background-color: #3498db;
             color: white;
         }
-        
+
         .option.correct {
             background-color: #2ecc71;
             color: white;
         }
-        
+
         .option.incorrect {
             background-color: #e74c3c;
             color: white;
         }
-        
+
         button {
             background-color: #3498db;
             color: white;
@@ -80,16 +82,16 @@
             margin: 20px auto;
             transition: background-color 0.3s;
         }
-        
+
         button:hover {
             background-color: #2980b9;
         }
-        
+
         button:disabled {
             background-color: #95a5a6;
             cursor: not-allowed;
         }
-        
+
         .results {
             text-align: center;
             font-size: 18px;
@@ -99,13 +101,13 @@
             background-color: #e8f4fc;
             display: none;
         }
-        
+
         .progress {
             text-align: center;
             margin-bottom: 20px;
             color: #7f8c8d;
         }
-        
+
         .explanation {
             margin-top: 10px;
             padding: 10px;
@@ -115,20 +117,21 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Database Concepts Quiz</h1>
     <p style="text-align: center;">Test your knowledge of PL/SQL, Data Warehousing, and Database Concepts</p>
-    
+
     <div class="progress">Question <span id="current-question">1</span> of <span id="total-questions">10</span></div>
-    
+
     <div class="quiz-container">
         <div id="question-container"></div>
         <button id="submit-btn" disabled>Submit Answer</button>
         <button id="next-btn" style="display: none;">Next Question</button>
     </div>
-    
+
     <div class="results" id="results"></div>
-    
+
     <script>
         const questions = [
             // PL/SQL Basics (10 questions)
@@ -894,34 +897,37 @@
         function showQuestion() {
             const question = questions[currentQuestionIndex];
             currentQuestionSpan.textContent = currentQuestionIndex + 1;
-            
+
             let optionsHtml = '';
             question.options.forEach((option, index) => {
                 optionsHtml += `
-                    <div class="option" data-index="${index}">
-                        ${option}
-                    </div>
-                `;
+            <div class="option" data-index="${index}">
+                ${option}
+            </div>
+        `;
             });
-            
+
             questionContainer.innerHTML = `
-                <div class="question">
-                    <h3>${question.question}</h3>
-                    <div class="options">${optionsHtml}</div>
-                    <div class="explanation" id="explanation"></div>
-                </div>
-            `;
-            
+        <div class="question">
+            <h3>${question.question}</h3>
+            <div class="options">${optionsHtml}</div>
+            <div class="explanation" id="explanation"></div>
+        </div>
+    `;
+
             // Add event listeners to options
             document.querySelectorAll('.option').forEach(option => {
                 option.addEventListener('click', selectOption);
             });
-            
+
             // Reset UI state
             submitBtn.disabled = true;
             nextBtn.style.display = 'none';
             resultsDiv.style.display = 'none';
             selectedOption = null;
+
+            // Show the submit button when moving to the next question
+            submitBtn.style.display = 'inline-block';
         }
 
         function selectOption(e) {
@@ -929,31 +935,31 @@
             document.querySelectorAll('.option').forEach(opt => {
                 opt.classList.remove('selected');
             });
-            
+
             // Add selected class to clicked option
             const selectedElement = e.target.closest('.option');
             selectedElement.classList.add('selected');
-            
+
             // Store selected option index
             selectedOption = parseInt(selectedElement.dataset.index);
-            
+
             // Enable submit button
             submitBtn.disabled = false;
         }
 
         function submitAnswer() {
             if (selectedOption === null) return;
-            
+
             const question = questions[currentQuestionIndex];
             const options = document.querySelectorAll('.option');
             const explanationDiv = document.getElementById('explanation');
-            
+
             // Disable all options
             options.forEach(opt => {
                 opt.style.cursor = 'default';
                 opt.removeEventListener('click', selectOption);
             });
-            
+
             // Mark correct and incorrect answers
             options.forEach((opt, index) => {
                 if (index === question.answer) {
@@ -962,16 +968,16 @@
                     opt.classList.add('incorrect');
                 }
             });
-            
+
             // Update score if correct
             if (selectedOption === question.answer) {
                 score++;
             }
-            
+
             // Show explanation
             explanationDiv.textContent = question.explanation;
             explanationDiv.style.display = 'block';
-            
+
             // Change button to Next
             submitBtn.style.display = 'none';
             nextBtn.style.display = 'block';
@@ -979,7 +985,7 @@
 
         function nextQuestion() {
             currentQuestionIndex++;
-            
+
             if (currentQuestionIndex < questions.length) {
                 showQuestion();
             } else {
@@ -991,7 +997,7 @@
             quizCompleted = true;
             questionContainer.style.display = 'none';
             nextBtn.style.display = 'none';
-            
+
             resultsDiv.innerHTML = `
                 <h2>Quiz Completed!</h2>
                 <p>Your score: ${score} out of ${questions.length}</p>
@@ -1002,4 +1008,5 @@
         }
     </script>
 </body>
+
 </html>
