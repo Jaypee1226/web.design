@@ -338,6 +338,7 @@
             </div>
         </div>
 
+
         <div id="success-card">
             <span class="heart-beat">💖</span>
             <h2>IT'S A DATE!</h2>
@@ -345,6 +346,10 @@
         </div>
     </div>
 
+        <iframe src="blossom2/flower2.html" id="successBackground" 
+            style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; border: none; z-index: -1; opacity: 0; pointer-events: none;">
+        </iframe>
+        
     <script>
         function openEnvelope() {
             document.getElementById('envelopeWrapper').classList.add('open');
@@ -355,7 +360,7 @@
         }
 
         function sayYes() {
-            // Fade out the wreath and envelope
+            // 1. Fade out the wreath and envelope
             gsap.to(['#envelopeWrapper', '#flowerBackground'], {
                 autoAlpha: 0,
                 duration: 1,
@@ -363,10 +368,16 @@
                     document.getElementById('envelopeWrapper').style.display = 'none';
                     document.getElementById('flowerBackground').style.display = 'none';
 
-                    // Show the celebratory card
+                    // 2. Set z-index so the new flowers are at the bottom
+                    const successBG = document.getElementById('successBackground');
+                    successBG.style.zIndex = "1";
+
+                    // 3. Fade in the glowing flowers background
+                    gsap.to('#successBackground', { autoAlpha: 1, duration: 1.5 });
+
+                    // 4. Show the celebratory card (with transparency/glass effect)
                     document.getElementById('success-card').style.display = 'block';
 
-                    // Trigger higher-density confetti
                     initConfetti();
                 }
             });
