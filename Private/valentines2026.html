@@ -329,6 +329,9 @@
 
 <body>
 
+    <audio id="romanticMusic" loop>
+        <source src="VALmusic.mp3" type="audio/mpeg">
+    </audio>
     <iframe src="blossom1/flowers.html" id="flowerBackground"></iframe>
     <canvas id="confettiCanvas"></canvas>
 
@@ -372,6 +375,18 @@
 
     <script>
         function openEnvelope() {
+            const music = document.getElementById('romanticMusic');
+
+            // Set a reasonable volume
+            music.volume = 0.5;
+
+            // Trigger playback on the user click
+            music.play().then(() => {
+                console.log("Music started successfully!"); // You can see this in the F12 console
+            }).catch(error => {
+                console.error("Playback failed. Check if the file path is correct:", error);
+            });
+
             document.getElementById('envelopeWrapper').classList.add('open');
         }
 
@@ -407,7 +422,7 @@
         function initConfetti() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            const colors = ['#00fffb', '#3a86ff', '#f72585', '#ffffff', '#ffbe0b'];
+            const colors = ['#a34b4b', '#e29595', '#d4af37', '#f4f1ea', '#ffb7b7'];
             for (let i = 0; i < 150; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
