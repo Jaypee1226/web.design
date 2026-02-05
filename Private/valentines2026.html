@@ -376,15 +376,13 @@
     <script>
         function openEnvelope() {
             const music = document.getElementById('romanticMusic');
-
-            // Set a reasonable volume
             music.volume = 0.5;
 
-            // Trigger playback on the user click
+            // This must be inside the click function to work on GitHub
             music.play().then(() => {
-                console.log("Music started successfully!"); // You can see this in the F12 console
+                console.log("Music started successfully on GitHub!");
             }).catch(error => {
-                console.error("Playback failed. Check if the file path is correct:", error);
+                console.error("Playback failed. Check the console for errors:", error);
             });
 
             document.getElementById('envelopeWrapper').classList.add('open');
